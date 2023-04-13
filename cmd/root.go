@@ -24,18 +24,28 @@ package cmd
 import (
 	"os"
 
+	"github.com/kroschelino/yarnique/json"
 	"github.com/spf13/cobra"
 )
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "yarnique",
-	Short: "Prettifies yarn list JSON output into an SVG image",
+	Use:     "yarnique [path to `yarn list` output]",
+	Aliases: []string{"ynq"},
+	Short:   "Prettifies yarn list JSON output into an SVG image",
 	Long: `yarnique is a tool to visualize yarn list output
 by taking a yarn list JSON output file and converting it to an SVG image`,
+	ArgAliases: []string{"input_file"},
+	Args:       cobra.MinimumNArgs(1),
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
-	// Run: func(cmd *cobra.Command, args []string) { },
+	RunE: func(cmd *cobra.Command, args []string) error {
+		if deps, err := json.FindInJson(args[0], args[1], ""); err == nil {
+			json.PrintDeps(deps)
+			return err
+		}
+		return nil
+	},
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
@@ -56,5 +66,5 @@ func init() {
 
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
-	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	// rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }

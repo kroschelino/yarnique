@@ -24,7 +24,7 @@ package cmd
 import (
 	"os"
 
-	"github.com/kroschelino/yarnique/json"
+	"github.com/kroschelino/yarnique/core"
 	"github.com/spf13/cobra"
 )
 
@@ -36,14 +36,14 @@ var rootCmd = &cobra.Command{
 	Long: `yarnique is a tool to visualize yarn list output
 by taking a yarn list JSON output file and converting it to an SVG image`,
 	ArgAliases: []string{"input_file"},
-	Args:       cobra.MinimumNArgs(1),
+	Args:       cobra.ExactArgs(1),
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	RunE: func(cmd *cobra.Command, args []string) error {
-		if deps, err := json.FindInJson(args[0], args[1], ""); err == nil {
-			json.PrintDeps(deps)
-			return err
-		}
+		core.BuildDependencyTree()
+		// if err != nil {
+		// 	return err
+		// }
 		return nil
 	},
 }

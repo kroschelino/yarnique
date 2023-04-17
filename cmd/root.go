@@ -31,9 +31,9 @@ import (
 var rootCmd = &cobra.Command{
 	Use:     "yarnique [path to `yarn list` output]",
 	Aliases: []string{"ynq"},
-	Short:   "Prettifies yarn list JSON output into an SVG image",
-	Long: `yarnique is a tool to visualize yarn list output
-by taking a yarn list JSON output file and converting it to an SVG image`,
+	Short:   "Prints parent dependencies",
+	Long: `yarnique is a tool to visualize dependencies within a project
+by analyzing "package.json" and "yarn.lock" files`,
 	ArgAliases: []string{"input_file"},
 	Args:       cobra.ExactArgs(1),
 	// Uncomment the following line if your bare application

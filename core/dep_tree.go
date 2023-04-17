@@ -3,6 +3,7 @@ package core
 import (
 	"errors"
 	"fmt"
+	"sort"
 
 	"golang.org/x/exp/slices"
 	"gopkg.in/yaml.v3"
@@ -58,6 +59,12 @@ func buildDependencyTree(rootDeps []Dependency, yarnLock string) {
 	fmt.Println("done")
 }
 
+func sortDependencyTree(depTree *DependencyTree) {
+	sort.Slice(depTree.Items, func(i, j int) bool {
+		return depTree.Items[i].Item.Name < depTree.Items[j].Item.Name
+	})
+}
+
 func BuildDependencyTree() error {
 	yarnLock, err := findAndReadYarnLock()
 	if err != nil {
@@ -70,6 +77,7 @@ func BuildDependencyTree() error {
 
 	createVersionsMap(string(yarnLock))
 	buildDependencyTree(deps, string(yarnLock))
+	sortDependencyTree(&depTree)
 
 	err = writeToYaml(&depTree)
 	return err

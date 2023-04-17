@@ -24,7 +24,7 @@ func readFile(filename string) ([]byte, error) {
 func findAndReadPackageJson() ([]byte, error) {
 	content, err := readFile("package.json")
 	if err != nil {
-		return nil, errors.New("Could not locate the `package.json`")
+		return nil, errors.New("could not locate the `package.json`")
 	}
 	return content, nil
 }
@@ -32,7 +32,7 @@ func findAndReadPackageJson() ([]byte, error) {
 func findAndReadYarnLock() ([]byte, error) {
 	content, err := readFile("yarn.lock")
 	if err != nil {
-		return nil, errors.New("Could not locate the `yarn.lock`, you may have to generate one via `yarn`")
+		return nil, errors.New("could not locate the `yarn.lock`, you may have to generate one via `yarn`")
 	}
 	return content, nil
 }

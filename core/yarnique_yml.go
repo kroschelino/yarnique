@@ -41,9 +41,7 @@ func buildDepdencyPaths(dep *Dependency, depTreeMap *DepTreeMap) DependencyPath 
 	var buildDependencyPathRecursive func(dep *Dependency, fullPath *DependencyPath, path *[]string, recursionDepth int, depTreeMap *DepTreeMap)
 	buildDependencyPathRecursive = func(dep *Dependency, fullPath *DependencyPath, path *[]string, recursionDepth int, depTreeMap *DepTreeMap) {
 
-		var result []string
-
-		result = append(*path, packageName(dep))
+		result := append(*path, packageName(dep))
 
 		if recursionDepth > 0 {
 
@@ -54,9 +52,7 @@ func buildDepdencyPaths(dep *Dependency, depTreeMap *DepTreeMap) DependencyPath 
 				return
 			}
 		}
-
 		*fullPath = append(*fullPath, result)
-
 	}
 
 	recursionDepth := 20
@@ -95,15 +91,13 @@ func printRootDependencies(deps []*Dependency, depTreeMap *DepTreeMap) {
 
 		}
 		color.Println()
-
 	}
-
 }
 
 func getDepTreeFromYaml() error {
 	b, err := readFile(".yarnique.yml")
 	if err != nil {
-		return errors.New("Could not locate any `.yarnique.yml` in the current folder, did you run `yarnique build` first?")
+		return errors.New("could not locate any `.yarnique.yml` in the current folder, did you run `yarnique build` first?")
 	}
 	if err = yaml.Unmarshal(b, &depTree); err != nil {
 		return err
@@ -127,7 +121,7 @@ func getApplicableDependencies(packageName string, depTree *DependencyTree) ([]*
 	}
 
 	if result == nil {
-		err = errors.New("Could not find any dependencies containing `packageName`")
+		err = errors.New("could not find any dependencies containing `packageName`")
 	}
 
 	return result, err
@@ -153,7 +147,7 @@ func createMapFromDepTree() {
 		if depTree.Items[i].Parent != nil {
 			depTreeMap[name][version] = append(depTreeMap[name][version], depTree.Items[i].Parent)
 		} else {
-			depTreeMap[name][version] = nil
+			depTreeMap[name][version] = append(depTreeMap[name][version], nil)
 		}
 
 	}

@@ -59,7 +59,7 @@ func buildDepdencyPaths(dep *Dependency, depTreeMap *DepTreeMap) DependencyPath 
 
 	}
 
-	recursionDepth := 10
+	recursionDepth := 20
 	buildDependencyPathRecursive(dep, &fullPath, &[]string{}, recursionDepth, depTreeMap)
 	return fullPath
 }

@@ -9,6 +9,14 @@ items:
         usedversion: 2.4.7
     - item:
         name: '@babel/code-frame'
+        requiredversion: ^7.16.7
+        usedversion: 7.16.7
+      parent:
+        name: '@babel/traverse'
+        requiredversion: ^7.12.5
+        usedversion: 7.17.3
+    - item:
+        name: '@babel/code-frame'
         requiredversion: ^7.0.0
         usedversion: 7.16.7
       parent:
@@ -23,14 +31,6 @@ items:
         name: '@babel/template'
         requiredversion: ^7.16.7
         usedversion: 7.16.7
-    - item:
-        name: '@babel/code-frame'
-        requiredversion: ^7.16.7
-        usedversion: 7.16.7
-      parent:
-        name: '@babel/traverse'
-        requiredversion: ^7.12.5
-        usedversion: 7.17.3
     - item:
         name: '@babel/generator'
         requiredversion: ^7.17.3
@@ -105,30 +105,6 @@ items:
         usedversion: 7.16.7
     - item:
         name: '@babel/parser'
-        requiredversion: 7.16.4
-        usedversion: 7.16.4
-      parent:
-        name: depcheck
-        requiredversion: ^1.4.3
-        usedversion: 1.4.3
-    - item:
-        name: '@babel/parser'
-        requiredversion: ^7.16.4
-        usedversion: 7.17.8
-      parent:
-        name: '@vue/reactivity-transform'
-        requiredversion: 3.2.31
-        usedversion: 3.2.31
-    - item:
-        name: '@babel/parser'
-        requiredversion: ^7.16.4
-        usedversion: 7.17.8
-      parent:
-        name: '@vue/compiler-core'
-        requiredversion: 3.2.31
-        usedversion: 3.2.31
-    - item:
-        name: '@babel/parser'
         requiredversion: ^7.17.3
         usedversion: 7.17.8
       parent:
@@ -145,12 +121,36 @@ items:
         usedversion: 3.2.31
     - item:
         name: '@babel/parser'
+        requiredversion: ^7.16.4
+        usedversion: 7.17.8
+      parent:
+        name: '@vue/compiler-core'
+        requiredversion: 3.2.31
+        usedversion: 3.2.31
+    - item:
+        name: '@babel/parser'
+        requiredversion: ^7.16.4
+        usedversion: 7.17.8
+      parent:
+        name: '@vue/reactivity-transform'
+        requiredversion: 3.2.31
+        usedversion: 3.2.31
+    - item:
+        name: '@babel/parser'
         requiredversion: ^7.16.7
         usedversion: 7.17.8
       parent:
         name: '@babel/template'
         requiredversion: ^7.16.7
         usedversion: 7.16.7
+    - item:
+        name: '@babel/parser'
+        requiredversion: 7.16.4
+        usedversion: 7.16.4
+      parent:
+        name: depcheck
+        requiredversion: ^1.4.3
+        usedversion: 1.4.3
     - item:
         name: '@babel/runtime'
         requiredversion: ^7.13.10
@@ -188,6 +188,14 @@ items:
         requiredversion: ^7.16.7
         usedversion: 7.17.0
       parent:
+        name: '@babel/helper-hoist-variables'
+        requiredversion: ^7.16.7
+        usedversion: 7.16.7
+    - item:
+        name: '@babel/types'
+        requiredversion: ^7.16.7
+        usedversion: 7.17.0
+      parent:
         name: '@babel/helper-function-name'
         requiredversion: ^7.16.7
         usedversion: 7.16.7
@@ -196,31 +204,15 @@ items:
         requiredversion: ^7.16.7
         usedversion: 7.17.0
       parent:
-        name: '@babel/helper-split-export-declaration'
+        name: '@babel/template'
         requiredversion: ^7.16.7
         usedversion: 7.16.7
-    - item:
-        name: '@babel/types'
-        requiredversion: ^7.17.0
-        usedversion: 7.17.0
-      parent:
-        name: '@babel/traverse'
-        requiredversion: ^7.12.5
-        usedversion: 7.17.3
     - item:
         name: '@babel/types'
         requiredversion: ^7.16.7
         usedversion: 7.17.0
       parent:
         name: '@babel/helper-get-function-arity'
-        requiredversion: ^7.16.7
-        usedversion: 7.16.7
-    - item:
-        name: '@babel/types'
-        requiredversion: ^7.16.7
-        usedversion: 7.17.0
-      parent:
-        name: '@babel/helper-hoist-variables'
         requiredversion: ^7.16.7
         usedversion: 7.16.7
     - item:
@@ -236,17 +228,25 @@ items:
         requiredversion: ^7.17.0
         usedversion: 7.17.0
       parent:
-        name: '@babel/generator'
-        requiredversion: ^7.17.3
-        usedversion: 7.17.7
+        name: '@babel/traverse'
+        requiredversion: ^7.12.5
+        usedversion: 7.17.3
     - item:
         name: '@babel/types'
         requiredversion: ^7.16.7
         usedversion: 7.17.0
       parent:
-        name: '@babel/template'
+        name: '@babel/helper-split-export-declaration'
         requiredversion: ^7.16.7
         usedversion: 7.16.7
+    - item:
+        name: '@babel/types'
+        requiredversion: ^7.17.0
+        usedversion: 7.17.0
+      parent:
+        name: '@babel/generator'
+        requiredversion: ^7.17.3
+        usedversion: 7.17.7
     - item:
         name: '@choojs/findup'
         requiredversion: ^0.2.0
@@ -302,20 +302,20 @@ items:
         usedversion: 1.10.1
     - item:
         name: '@mapbox/point-geometry'
-        requiredversion: ^0.1.0
-        usedversion: 0.1.0
-      parent:
-        name: mapbox-gl
-        requiredversion: 1.10.1
-        usedversion: 1.10.1
-    - item:
-        name: '@mapbox/point-geometry'
         requiredversion: ~0.1.0
         usedversion: 0.1.0
       parent:
         name: '@mapbox/vector-tile'
         requiredversion: ^1.3.1
         usedversion: 1.3.1
+    - item:
+        name: '@mapbox/point-geometry'
+        requiredversion: ^0.1.0
+        usedversion: 0.1.0
+      parent:
+        name: mapbox-gl
+        requiredversion: 1.10.1
+        usedversion: 1.10.1
     - item:
         name: '@mapbox/point-geometry'
         requiredversion: 0.1.0
@@ -473,24 +473,16 @@ items:
         usedversion: 6.5.0
       parent:
         name: plotly.js
-        requiredversion: ^2.5.1
-        usedversion: 2.11.1
+        requiredversion: ^1.35.0
+        usedversion: 1.58.5
     - item:
         name: '@turf/centroid'
         requiredversion: ^6.0.2
         usedversion: 6.5.0
       parent:
         name: plotly.js
-        requiredversion: ^1.35.0
-        usedversion: 1.58.5
-    - item:
-        name: '@turf/helpers'
-        requiredversion: ^6.5.0
-        usedversion: 6.5.0
-      parent:
-        name: '@turf/centroid'
-        requiredversion: ^6.0.2
-        usedversion: 6.5.0
+        requiredversion: ^2.5.1
+        usedversion: 2.11.1
     - item:
         name: '@turf/helpers'
         requiredversion: ^6.5.0
@@ -516,6 +508,22 @@ items:
         requiredversion: ^6.0.1
         usedversion: 6.5.0
     - item:
+        name: '@turf/helpers'
+        requiredversion: ^6.5.0
+        usedversion: 6.5.0
+      parent:
+        name: '@turf/centroid'
+        requiredversion: ^6.0.2
+        usedversion: 6.5.0
+    - item:
+        name: '@turf/meta'
+        requiredversion: ^6.5.0
+        usedversion: 6.5.0
+      parent:
+        name: '@turf/centroid'
+        requiredversion: ^6.0.2
+        usedversion: 6.5.0
+    - item:
         name: '@turf/meta'
         requiredversion: ^6.5.0
         usedversion: 6.5.0
@@ -530,14 +538,6 @@ items:
       parent:
         name: '@turf/bbox'
         requiredversion: ^6.0.1
-        usedversion: 6.5.0
-    - item:
-        name: '@turf/meta'
-        requiredversion: ^6.5.0
-        usedversion: 6.5.0
-      parent:
-        name: '@turf/centroid'
-        requiredversion: ^6.0.2
         usedversion: 6.5.0
     - item:
         name: '@types/body-parser'
@@ -578,14 +578,6 @@ items:
         usedversion: 2.7.1
     - item:
         name: '@types/minimatch'
-        requiredversion: '*'
-        usedversion: 3.0.5
-      parent:
-        name: glob
-        requiredversion: ^7.1.1
-        usedversion: 7.2.0
-    - item:
-        name: '@types/minimatch'
         requiredversion: ^3.0.3
         usedversion: 3.0.5
       parent:
@@ -593,17 +585,9 @@ items:
         requiredversion: ^5.0.0
         usedversion: 5.0.0
     - item:
-        name: '@types/node'
+        name: '@types/minimatch'
         requiredversion: '*'
-        usedversion: 17.0.23
-      parent:
-        name: '@types/express-serve-static-core'
-        requiredversion: ^4.17.18
-        usedversion: 4.17.28
-    - item:
-        name: '@types/node'
-        requiredversion: '*'
-        usedversion: 17.0.23
+        usedversion: 3.0.5
       parent:
         name: glob
         requiredversion: ^7.1.1
@@ -618,12 +602,28 @@ items:
         usedversion: 1.19.2
     - item:
         name: '@types/node'
+        requiredversion: '*'
+        usedversion: 17.0.23
+      parent:
+        name: glob
+        requiredversion: ^7.1.1
+        usedversion: 7.2.0
+    - item:
+        name: '@types/node'
         requiredversion: '>=6'
         usedversion: 17.0.23
       parent:
         name: '@wry/context'
         requiredversion: ^0.4.0
         usedversion: 0.4.4
+    - item:
+        name: '@types/node'
+        requiredversion: '*'
+        usedversion: 17.0.23
+      parent:
+        name: '@types/express-serve-static-core'
+        requiredversion: ^4.17.18
+        usedversion: 4.17.28
     - item:
         name: '@types/parse-json'
         requiredversion: ^4.0.0
@@ -637,17 +637,17 @@ items:
         requiredversion: '*'
         usedversion: 6.9.7
       parent:
-        name: '@types/express'
-        requiredversion: ^4.17.13
-        usedversion: 4.17.13
+        name: '@types/express-serve-static-core'
+        requiredversion: ^4.17.18
+        usedversion: 4.17.28
     - item:
         name: '@types/qs'
         requiredversion: '*'
         usedversion: 6.9.7
       parent:
-        name: '@types/express-serve-static-core'
-        requiredversion: ^4.17.18
-        usedversion: 4.17.28
+        name: '@types/express'
+        requiredversion: ^4.17.13
+        usedversion: 4.17.13
     - item:
         name: '@types/range-parser'
         requiredversion: '*'
@@ -677,16 +677,16 @@ items:
         requiredversion: 3.2.31
         usedversion: 3.2.31
       parent:
-        name: '@vue/compiler-sfc'
-        requiredversion: ^3.0.5
+        name: '@vue/reactivity-transform'
+        requiredversion: 3.2.31
         usedversion: 3.2.31
     - item:
         name: '@vue/compiler-core'
         requiredversion: 3.2.31
         usedversion: 3.2.31
       parent:
-        name: '@vue/reactivity-transform'
-        requiredversion: 3.2.31
+        name: '@vue/compiler-sfc'
+        requiredversion: ^3.0.5
         usedversion: 3.2.31
     - item:
         name: '@vue/compiler-core'
@@ -757,7 +757,7 @@ items:
         requiredversion: 3.2.31
         usedversion: 3.2.31
       parent:
-        name: '@vue/compiler-ssr'
+        name: '@vue/compiler-dom'
         requiredversion: 3.2.31
         usedversion: 3.2.31
     - item:
@@ -765,7 +765,7 @@ items:
         requiredversion: 3.2.31
         usedversion: 3.2.31
       parent:
-        name: '@vue/compiler-dom'
+        name: '@vue/compiler-ssr'
         requiredversion: 3.2.31
         usedversion: 3.2.31
     - item:
@@ -855,20 +855,20 @@ items:
         usedversion: 2.4.7
     - item:
         name: abs-svg-path
-        requiredversion: ~0.1.1
-        usedversion: 0.1.1
-      parent:
-        name: draw-svg-path
-        requiredversion: ^1.0.0
-        usedversion: 1.0.0
-    - item:
-        name: abs-svg-path
         requiredversion: ^0.1.1
         usedversion: 0.1.1
       parent:
         name: svg-path-bounds
         requiredversion: ^1.0.1
         usedversion: 1.0.2
+    - item:
+        name: abs-svg-path
+        requiredversion: ~0.1.1
+        usedversion: 0.1.1
+      parent:
+        name: draw-svg-path
+        requiredversion: ^1.0.0
+        usedversion: 1.0.0
     - item:
         name: acorn
         requiredversion: ^7.1.1
@@ -959,6 +959,14 @@ items:
         usedversion: 7.0.0
     - item:
         name: apollo-cache
+        requiredversion: 1.3.5
+        usedversion: 1.3.5
+      parent:
+        name: '@webdash-components/wd-apollo-client'
+        requiredversion: 0.0.1
+        usedversion: 0.0.1
+    - item:
+        name: apollo-cache
         requiredversion: ^1.3.5
         usedversion: 1.3.5
       parent:
@@ -973,14 +981,6 @@ items:
         name: apollo-client
         requiredversion: 2.6.10
         usedversion: 2.6.10
-    - item:
-        name: apollo-cache
-        requiredversion: 1.3.5
-        usedversion: 1.3.5
-      parent:
-        name: '@webdash-components/wd-apollo-client'
-        requiredversion: 0.0.1
-        usedversion: 0.0.1
     - item:
         name: apollo-cache-inmemory
         requiredversion: ^1.6.6
@@ -1018,6 +1018,22 @@ items:
         requiredversion: ^1.2.14
         usedversion: 1.2.14
       parent:
+        name: apollo-link-error
+        requiredversion: 1.1.13
+        usedversion: 1.1.13
+    - item:
+        name: apollo-link
+        requiredversion: ^1.2.14
+        usedversion: 1.2.14
+      parent:
+        name: apollo-link-http-common
+        requiredversion: ^0.2.16
+        usedversion: 0.2.16
+    - item:
+        name: apollo-link
+        requiredversion: ^1.2.14
+        usedversion: 1.2.14
+      parent:
         name: '@webdash-components/wd-apollo-client'
         requiredversion: 0.0.1
         usedversion: 0.0.1
@@ -1037,22 +1053,6 @@ items:
         name: apollo-link-context
         requiredversion: 1.0.20
         usedversion: 1.0.20
-    - item:
-        name: apollo-link
-        requiredversion: ^1.2.14
-        usedversion: 1.2.14
-      parent:
-        name: apollo-link-http-common
-        requiredversion: ^0.2.16
-        usedversion: 0.2.16
-    - item:
-        name: apollo-link
-        requiredversion: ^1.2.14
-        usedversion: 1.2.14
-      parent:
-        name: apollo-link-error
-        requiredversion: 1.1.13
-        usedversion: 1.1.13
     - item:
         name: apollo-link-context
         requiredversion: 1.0.20
@@ -1114,17 +1114,17 @@ items:
         requiredversion: ^1.3.4
         usedversion: 1.3.4
       parent:
-        name: apollo-cache
-        requiredversion: 1.3.5
-        usedversion: 1.3.5
+        name: '@webdash-components/wd-apollo-client'
+        requiredversion: 0.0.1
+        usedversion: 0.0.1
     - item:
         name: apollo-utilities
         requiredversion: ^1.3.4
         usedversion: 1.3.4
       parent:
-        name: apollo-cache-inmemory
-        requiredversion: ^1.6.6
-        usedversion: 1.6.6
+        name: apollo-cache
+        requiredversion: 1.3.5
+        usedversion: 1.3.5
     - item:
         name: apollo-utilities
         requiredversion: 1.3.4
@@ -1138,9 +1138,9 @@ items:
         requiredversion: ^1.3.4
         usedversion: 1.3.4
       parent:
-        name: '@webdash-components/wd-apollo-client'
-        requiredversion: 0.0.1
-        usedversion: 0.0.1
+        name: apollo-cache-inmemory
+        requiredversion: ^1.6.6
+        usedversion: 1.6.6
     - item:
         name: argparse
         requiredversion: ^1.0.7
@@ -1154,33 +1154,17 @@ items:
         requiredversion: ^1.1.0
         usedversion: 1.1.0
       parent:
-        name: to-uint8
-        requiredversion: ^1.4.1
-        usedversion: 1.4.1
+        name: pxls
+        requiredversion: ^2.0.0
+        usedversion: 2.3.2
     - item:
         name: arr-flatten
         requiredversion: ^1.1.0
         usedversion: 1.1.0
       parent:
-        name: pxls
-        requiredversion: ^2.0.0
-        usedversion: 2.3.2
-    - item:
-        name: array-bounds
-        requiredversion: ^1.0.1
-        usedversion: 1.0.1
-      parent:
-        name: regl-splom
-        requiredversion: ^1.0.12
-        usedversion: 1.0.14
-    - item:
-        name: array-bounds
-        requiredversion: ^1.0.1
-        usedversion: 1.0.1
-      parent:
-        name: '@plotly/point-cluster'
-        requiredversion: ^3.1.9
-        usedversion: 3.1.9
+        name: to-uint8
+        requiredversion: ^1.4.1
+        usedversion: 1.4.1
     - item:
         name: array-bounds
         requiredversion: ^1.0.1
@@ -1191,12 +1175,28 @@ items:
         usedversion: 3.1.2
     - item:
         name: array-bounds
+        requiredversion: ^1.0.1
+        usedversion: 1.0.1
+      parent:
+        name: '@plotly/point-cluster'
+        requiredversion: ^3.1.9
+        usedversion: 3.1.9
+    - item:
+        name: array-bounds
         requiredversion: ^1.0.0
         usedversion: 1.0.1
       parent:
         name: array-normalize
         requiredversion: ^1.1.4
         usedversion: 1.1.4
+    - item:
+        name: array-bounds
+        requiredversion: ^1.0.1
+        usedversion: 1.0.1
+      parent:
+        name: regl-splom
+        requiredversion: ^1.0.12
+        usedversion: 1.0.14
     - item:
         name: array-bounds
         requiredversion: ^1.0.1
@@ -1271,20 +1271,20 @@ items:
         usedversion: 5.0.0
     - item:
         name: atob-lite
-        requiredversion: ^2.0.0
-        usedversion: 2.0.0
-      parent:
-        name: string-to-arraybuffer
-        requiredversion: ^1.0.0
-        usedversion: 1.0.2
-    - item:
-        name: atob-lite
         requiredversion: ^1.0.0
         usedversion: 1.0.0
       parent:
         name: glsl-shader-name
         requiredversion: ^1.0.0
         usedversion: 1.0.0
+    - item:
+        name: atob-lite
+        requiredversion: ^2.0.0
+        usedversion: 2.0.0
+      parent:
+        name: string-to-arraybuffer
+        requiredversion: ^1.0.0
+        usedversion: 1.0.2
     - item:
         name: backo2
         requiredversion: ^1.0.2
@@ -1351,20 +1351,12 @@ items:
         usedversion: 3.1.9
     - item:
         name: binary-search-bounds
-        requiredversion: ^2.0.0
+        requiredversion: ^2.0.3
         usedversion: 2.0.5
       parent:
-        name: slab-decomposition
-        requiredversion: ^1.0.1
-        usedversion: 1.0.3
-    - item:
-        name: binary-search-bounds
-        requiredversion: ^2.0.4
-        usedversion: 2.0.5
-      parent:
-        name: gl-plot2d
-        requiredversion: ^1.4.5
-        usedversion: 1.4.5
+        name: cdt2d
+        requiredversion: ^1.0.0
+        usedversion: 1.0.0
     - item:
         name: binary-search-bounds
         requiredversion: ^2.0.0
@@ -1378,33 +1370,9 @@ items:
         requiredversion: ^2.0.4
         usedversion: 2.0.5
       parent:
-        name: gl-contour2d
-        requiredversion: ^1.1.7
-        usedversion: 1.1.7
-    - item:
-        name: binary-search-bounds
-        requiredversion: ^2.0.0
-        usedversion: 2.0.5
-      parent:
-        name: point-in-big-polygon
-        requiredversion: ^2.0.1
-        usedversion: 2.0.1
-    - item:
-        name: binary-search-bounds
-        requiredversion: ^2.0.4
-        usedversion: 2.0.5
-      parent:
-        name: gl-surface3d
-        requiredversion: ^1.6.0
-        usedversion: 1.6.0
-    - item:
-        name: binary-search-bounds
-        requiredversion: ^2.0.0
-        usedversion: 2.0.5
-      parent:
-        name: matrix-camera-controller
-        requiredversion: ^2.1.1
-        usedversion: 2.1.4
+        name: gl-line3d
+        requiredversion: 1.2.1
+        usedversion: 1.2.1
     - item:
         name: binary-search-bounds
         requiredversion: ^2.0.0
@@ -1415,20 +1383,20 @@ items:
         usedversion: 1.2.5
     - item:
         name: binary-search-bounds
-        requiredversion: ^2.0.3
+        requiredversion: ^2.0.0
         usedversion: 2.0.5
       parent:
-        name: cdt2d
-        requiredversion: ^1.0.0
-        usedversion: 1.0.0
+        name: point-in-big-polygon
+        requiredversion: ^2.0.1
+        usedversion: 2.0.1
     - item:
         name: binary-search-bounds
-        requiredversion: ^2.0.4
+        requiredversion: ^2.0.0
         usedversion: 2.0.5
       parent:
-        name: gl-line3d
-        requiredversion: 1.2.1
-        usedversion: 1.2.1
+        name: slab-decomposition
+        requiredversion: ^1.0.1
+        usedversion: 1.0.3
     - item:
         name: binary-search-bounds
         requiredversion: ^2.0.4
@@ -1437,6 +1405,38 @@ items:
         name: gl-heatmap2d
         requiredversion: ^1.1.0
         usedversion: 1.1.1
+    - item:
+        name: binary-search-bounds
+        requiredversion: ^2.0.4
+        usedversion: 2.0.5
+      parent:
+        name: gl-plot2d
+        requiredversion: ^1.4.5
+        usedversion: 1.4.5
+    - item:
+        name: binary-search-bounds
+        requiredversion: ^2.0.0
+        usedversion: 2.0.5
+      parent:
+        name: matrix-camera-controller
+        requiredversion: ^2.1.1
+        usedversion: 2.1.4
+    - item:
+        name: binary-search-bounds
+        requiredversion: ^2.0.4
+        usedversion: 2.0.5
+      parent:
+        name: gl-surface3d
+        requiredversion: ^1.6.0
+        usedversion: 1.6.0
+    - item:
+        name: binary-search-bounds
+        requiredversion: ^2.0.4
+        usedversion: 2.0.5
+      parent:
+        name: gl-contour2d
+        requiredversion: ^1.1.7
+        usedversion: 1.1.7
     - item:
         name: bit-twiddle
         requiredversion: ^1.0.2
@@ -1458,9 +1458,9 @@ items:
         requiredversion: ^1.0.2
         usedversion: 1.0.2
       parent:
-        name: box-intersect
-        requiredversion: ^1.0.1
-        usedversion: 1.0.2
+        name: gl-surface3d
+        requiredversion: ^1.6.0
+        usedversion: 1.6.0
     - item:
         name: bit-twiddle
         requiredversion: ^1.0.2
@@ -1479,20 +1479,20 @@ items:
         usedversion: 1.2.0
     - item:
         name: bit-twiddle
+        requiredversion: ^1.0.2
+        usedversion: 1.0.2
+      parent:
+        name: box-intersect
+        requiredversion: ^1.0.1
+        usedversion: 1.0.2
+    - item:
+        name: bit-twiddle
         requiredversion: ~0.0.1
         usedversion: 0.0.2
       parent:
         name: simplicial-complex
         requiredversion: ^0.3.3
         usedversion: 0.3.3
-    - item:
-        name: bit-twiddle
-        requiredversion: ^1.0.2
-        usedversion: 1.0.2
-      parent:
-        name: gl-surface3d
-        requiredversion: ^1.6.0
-        usedversion: 1.6.0
     - item:
         name: bit-twiddle
         requiredversion: ^1.0.2
@@ -1511,20 +1511,20 @@ items:
         usedversion: 1.1.3
     - item:
         name: bl
-        requiredversion: ^2.2.1
-        usedversion: 2.2.1
-      parent:
-        name: glslify
-        requiredversion: ^7.0.0
-        usedversion: 7.1.1
-    - item:
-        name: bl
         requiredversion: ^1.0.0
         usedversion: 1.2.3
       parent:
         name: ify-loader
         requiredversion: 1.1.0
         usedversion: 1.1.0
+    - item:
+        name: bl
+        requiredversion: ^2.2.1
+        usedversion: 2.2.1
+      parent:
+        name: glslify
+        requiredversion: ^7.0.0
+        usedversion: 7.1.1
     - item:
         name: bn.js
         requiredversion: ^4.11.6
@@ -1610,25 +1610,17 @@ items:
         requiredversion: ^1.0.0
         usedversion: 1.0.0
       parent:
-        name: vectorize-text
-        requiredversion: ^3.2.1
-        usedversion: 3.2.2
+        name: triangulate-polyline
+        requiredversion: ^1.0.0
+        usedversion: 1.0.3
     - item:
         name: cdt2d
         requiredversion: ^1.0.0
         usedversion: 1.0.0
       parent:
-        name: triangulate-polyline
-        requiredversion: ^1.0.0
-        usedversion: 1.0.3
-    - item:
-        name: cell-orientation
-        requiredversion: ^1.0.1
-        usedversion: 1.0.1
-      parent:
-        name: reduce-simplicial-complex
-        requiredversion: ^1.0.0
-        usedversion: 1.0.0
+        name: vectorize-text
+        requiredversion: ^3.2.1
+        usedversion: 3.2.2
     - item:
         name: cell-orientation
         requiredversion: ^1.0.1
@@ -1637,6 +1629,14 @@ items:
         name: compare-oriented-cell
         requiredversion: ^1.0.1
         usedversion: 1.0.1
+    - item:
+        name: cell-orientation
+        requiredversion: ^1.0.1
+        usedversion: 1.0.1
+      parent:
+        name: reduce-simplicial-complex
+        requiredversion: ^1.0.0
+        usedversion: 1.0.0
     - item:
         name: cell-orientation
         requiredversion: ^1.0.1
@@ -1674,9 +1674,9 @@ items:
         requiredversion: ^1.0.1
         usedversion: 1.0.1
       parent:
-        name: to-uint8
-        requiredversion: ^1.4.1
-        usedversion: 1.4.1
+        name: regl-scatter2d
+        requiredversion: ^3.2.1
+        usedversion: 3.2.8
     - item:
         name: clamp
         requiredversion: ^1.0.1
@@ -1690,14 +1690,6 @@ items:
         requiredversion: ^1.0.1
         usedversion: 1.0.1
       parent:
-        name: bitmap-sdf
-        requiredversion: ^1.0.0
-        usedversion: 1.0.3
-    - item:
-        name: clamp
-        requiredversion: ^1.0.1
-        usedversion: 1.0.1
-      parent:
         name: color-id
         requiredversion: ^1.1.0
         usedversion: 1.1.0
@@ -1706,17 +1698,9 @@ items:
         requiredversion: ^1.0.1
         usedversion: 1.0.1
       parent:
-        name: regl-scatter2d
-        requiredversion: ^3.2.1
-        usedversion: 3.2.8
-    - item:
-        name: clamp
-        requiredversion: ^1.0.1
-        usedversion: 1.0.1
-      parent:
-        name: color-rgba
-        requiredversion: 2.1.1
-        usedversion: 2.1.1
+        name: bitmap-sdf
+        requiredversion: ^1.0.0
+        usedversion: 1.0.3
     - item:
         name: clamp
         requiredversion: ^1.0.1
@@ -1725,6 +1709,22 @@ items:
         name: '@plotly/point-cluster'
         requiredversion: ^3.1.9
         usedversion: 3.1.9
+    - item:
+        name: clamp
+        requiredversion: ^1.0.1
+        usedversion: 1.0.1
+      parent:
+        name: to-uint8
+        requiredversion: ^1.4.1
+        usedversion: 1.4.1
+    - item:
+        name: clamp
+        requiredversion: ^1.0.1
+        usedversion: 1.0.1
+      parent:
+        name: color-rgba
+        requiredversion: 2.1.1
+        usedversion: 2.1.1
     - item:
         name: class-transformer
         requiredversion: 0.2.3
@@ -1743,20 +1743,20 @@ items:
         usedversion: 0.1.14
     - item:
         name: clean-pslg
-        requiredversion: ^1.1.2
-        usedversion: 1.1.2
-      parent:
-        name: gl-contour2d
-        requiredversion: ^1.1.7
-        usedversion: 1.1.7
-    - item:
-        name: clean-pslg
         requiredversion: ^1.1.0
         usedversion: 1.1.2
       parent:
         name: vectorize-text
         requiredversion: ^3.2.1
         usedversion: 3.2.2
+    - item:
+        name: clean-pslg
+        requiredversion: ^1.1.2
+        usedversion: 1.1.2
+      parent:
+        name: gl-contour2d
+        requiredversion: ^1.1.7
+        usedversion: 1.1.7
     - item:
         name: cliui
         requiredversion: ^7.0.2
@@ -1855,22 +1855,6 @@ items:
         usedversion: 2.0.1
     - item:
         name: color-normalize
-        requiredversion: ^1.5.0
-        usedversion: 1.5.2
-      parent:
-        name: regl-line2d
-        requiredversion: ^3.0.18
-        usedversion: 3.1.2
-    - item:
-        name: color-normalize
-        requiredversion: 1.5.0
-        usedversion: 1.5.0
-      parent:
-        name: plotly.js
-        requiredversion: ^1.35.0
-        usedversion: 1.58.5
-    - item:
-        name: color-normalize
         requiredversion: 1.5.0
         usedversion: 1.5.0
       parent:
@@ -1890,9 +1874,25 @@ items:
         requiredversion: ^1.5.0
         usedversion: 1.5.2
       parent:
+        name: regl-line2d
+        requiredversion: ^3.0.18
+        usedversion: 3.1.2
+    - item:
+        name: color-normalize
+        requiredversion: ^1.5.0
+        usedversion: 1.5.2
+      parent:
         name: gl-text
         requiredversion: ^1.1.8
         usedversion: 1.3.1
+    - item:
+        name: color-normalize
+        requiredversion: 1.5.0
+        usedversion: 1.5.0
+      parent:
+        name: plotly.js
+        requiredversion: ^1.35.0
+        usedversion: 1.58.5
     - item:
         name: color-normalize
         requiredversion: ^1.5.0
@@ -1903,20 +1903,20 @@ items:
         usedversion: 2.0.12
     - item:
         name: color-parse
-        requiredversion: ^1.4.1
-        usedversion: 1.4.2
-      parent:
-        name: color-alpha
-        requiredversion: ^1.0.4
-        usedversion: 1.1.3
-    - item:
-        name: color-parse
         requiredversion: 1.3.8
         usedversion: 1.3.8
       parent:
         name: plotly.js
         requiredversion: ^1.35.0
         usedversion: 1.58.5
+    - item:
+        name: color-parse
+        requiredversion: 1.3.8
+        usedversion: 1.3.8
+      parent:
+        name: plotly.js
+        requiredversion: ^2.5.1
+        usedversion: 2.11.1
     - item:
         name: color-parse
         requiredversion: ^1.4.2
@@ -1930,33 +1930,25 @@ items:
         requiredversion: ^1.3.8
         usedversion: 1.4.2
       parent:
-        name: color-alpha
-        requiredversion: 1.0.4
-        usedversion: 1.0.4
+        name: color-rgba
+        requiredversion: 2.1.1
+        usedversion: 2.1.1
     - item:
         name: color-parse
         requiredversion: ^1.3.8
         usedversion: 1.4.2
       parent:
-        name: color-rgba
-        requiredversion: 2.1.1
-        usedversion: 2.1.1
+        name: color-alpha
+        requiredversion: 1.0.4
+        usedversion: 1.0.4
     - item:
         name: color-parse
-        requiredversion: 1.3.8
-        usedversion: 1.3.8
+        requiredversion: ^1.4.1
+        usedversion: 1.4.2
       parent:
-        name: plotly.js
-        requiredversion: ^2.5.1
-        usedversion: 2.11.1
-    - item:
-        name: color-rgba
-        requiredversion: 2.1.1
-        usedversion: 2.1.1
-      parent:
-        name: plotly.js
-        requiredversion: ^1.35.0
-        usedversion: 1.58.5
+        name: color-alpha
+        requiredversion: ^1.0.4
+        usedversion: 1.1.3
     - item:
         name: color-rgba
         requiredversion: 2.1.1
@@ -1975,12 +1967,12 @@ items:
         usedversion: 3.2.8
     - item:
         name: color-rgba
-        requiredversion: ^2.2.0
-        usedversion: 2.4.0
+        requiredversion: 2.1.1
+        usedversion: 2.1.1
       parent:
-        name: color-normalize
-        requiredversion: ^1.5.0
-        usedversion: 1.5.2
+        name: plotly.js
+        requiredversion: ^1.35.0
+        usedversion: 1.58.5
     - item:
         name: color-rgba
         requiredversion: ^2.1.1
@@ -1989,6 +1981,14 @@ items:
         name: color-normalize
         requiredversion: 1.5.0
         usedversion: 1.5.0
+    - item:
+        name: color-rgba
+        requiredversion: ^2.2.0
+        usedversion: 2.4.0
+      parent:
+        name: color-normalize
+        requiredversion: ^1.5.0
+        usedversion: 1.5.2
     - item:
         name: color-space
         requiredversion: ^1.14.6
@@ -2010,6 +2010,14 @@ items:
         requiredversion: ^2.3.1
         usedversion: 2.3.2
       parent:
+        name: gl-surface3d
+        requiredversion: ^1.6.0
+        usedversion: 1.6.0
+    - item:
+        name: colormap
+        requiredversion: ^2.3.1
+        usedversion: 2.3.2
+      parent:
         name: gl-cone3d
         requiredversion: ^1.5.2
         usedversion: 1.5.2
@@ -2022,33 +2030,9 @@ items:
         requiredversion: ^2.3.1
         usedversion: 2.3.1
     - item:
-        name: colormap
-        requiredversion: ^2.3.1
-        usedversion: 2.3.2
-      parent:
-        name: gl-surface3d
-        requiredversion: ^1.6.0
-        usedversion: 1.6.0
-    - item:
         name: colors
         requiredversion: ~0.6.0-1
         usedversion: 0.6.2
-      parent:
-        name: findup
-        requiredversion: ^0.1.5
-        usedversion: 0.1.5
-    - item:
-        name: commander
-        requiredversion: "2"
-        usedversion: 2.20.3
-      parent:
-        name: topojson-client
-        requiredversion: ^3.1.0
-        usedversion: 3.1.0
-    - item:
-        name: commander
-        requiredversion: ~2.1.0
-        usedversion: 2.1.0
       parent:
         name: findup
         requiredversion: ^0.1.5
@@ -2070,6 +2054,22 @@ items:
         requiredversion: ^2.9.0
         usedversion: 2.9.0
     - item:
+        name: commander
+        requiredversion: ~2.1.0
+        usedversion: 2.1.0
+      parent:
+        name: findup
+        requiredversion: ^0.1.5
+        usedversion: 0.1.5
+    - item:
+        name: commander
+        requiredversion: "2"
+        usedversion: 2.20.3
+      parent:
+        name: topojson-client
+        requiredversion: ^3.1.0
+        usedversion: 3.1.0
+    - item:
         name: compare-angle
         requiredversion: ^1.0.0
         usedversion: 1.0.1
@@ -2077,6 +2077,14 @@ items:
         name: planar-dual
         requiredversion: ^1.0.0
         usedversion: 1.0.2
+    - item:
+        name: compare-cell
+        requiredversion: ^1.0.0
+        usedversion: 1.0.0
+      parent:
+        name: reduce-simplicial-complex
+        requiredversion: ^1.0.0
+        usedversion: 1.0.0
     - item:
         name: compare-cell
         requiredversion: ^1.0.0
@@ -2091,14 +2099,6 @@ items:
         usedversion: 1.0.0
       parent:
         name: simplicial-complex
-        requiredversion: ^1.0.0
-        usedversion: 1.0.0
-    - item:
-        name: compare-cell
-        requiredversion: ^1.0.0
-        usedversion: 1.0.0
-      parent:
-        name: reduce-simplicial-complex
         requiredversion: ^1.0.0
         usedversion: 1.0.0
     - item:
@@ -2162,17 +2162,17 @@ items:
         requiredversion: ^1.0.3
         usedversion: 1.0.3
       parent:
-        name: plotly.js
-        requiredversion: ^1.35.0
-        usedversion: 1.58.5
+        name: marching-simplex-table
+        requiredversion: ^1.0.0
+        usedversion: 1.0.0
     - item:
         name: convex-hull
         requiredversion: ^1.0.3
         usedversion: 1.0.3
       parent:
-        name: marching-simplex-table
-        requiredversion: ^1.0.0
-        usedversion: 1.0.0
+        name: plotly.js
+        requiredversion: ^1.35.0
+        usedversion: 1.58.5
     - item:
         name: core-js
         requiredversion: ^3.6.5
@@ -2212,14 +2212,6 @@ items:
         usedversion: 1.58.5
     - item:
         name: css-font
-        requiredversion: ^1.2.0
-        usedversion: 1.2.0
-      parent:
-        name: gl-text
-        requiredversion: ^1.1.8
-        usedversion: 1.3.1
-    - item:
-        name: css-font
         requiredversion: ^1.0.0
         usedversion: 1.2.0
       parent:
@@ -2234,6 +2226,14 @@ items:
         name: font-measure
         requiredversion: ^1.2.2
         usedversion: 1.2.2
+    - item:
+        name: css-font
+        requiredversion: ^1.2.0
+        usedversion: 1.2.0
+      parent:
+        name: gl-text
+        requiredversion: ^1.1.8
+        usedversion: 1.3.1
     - item:
         name: css-font-size-keywords
         requiredversion: ^1.0.0
@@ -2324,11 +2324,19 @@ items:
         usedversion: 1.2.2
     - item:
         name: d
+        requiredversion: "1"
+        usedversion: 1.0.1
+      parent:
+        name: es6-iterator
+        requiredversion: ^2.0.3
+        usedversion: 2.0.3
+    - item:
+        name: d
         requiredversion: ^1.0.1
         usedversion: 1.0.1
       parent:
         name: es6-symbol
-        requiredversion: ^3.1.0
+        requiredversion: ^3.1.3
         usedversion: 3.1.3
     - item:
         name: d
@@ -2339,14 +2347,6 @@ items:
         requiredversion: ^2.0.3
         usedversion: 2.0.3
     - item:
-        name: d
-        requiredversion: "1"
-        usedversion: 1.0.1
-      parent:
-        name: es6-iterator
-        requiredversion: ^2.0.3
-        usedversion: 2.0.3
-    - item:
         name: d3
         requiredversion: ^3.5.17
         usedversion: 3.5.17
@@ -2354,6 +2354,22 @@ items:
         name: plotly.js
         requiredversion: ^1.35.0
         usedversion: 1.58.5
+    - item:
+        name: d3-array
+        requiredversion: ^1.2.1
+        usedversion: 1.2.4
+      parent:
+        name: '@plotly/d3-sankey-circular'
+        requiredversion: 0.33.1
+        usedversion: 0.33.1
+    - item:
+        name: d3-array
+        requiredversion: "1"
+        usedversion: 1.2.4
+      parent:
+        name: d3-geo
+        requiredversion: ^1.12.1
+        usedversion: 1.12.1
     - item:
         name: d3-array
         requiredversion: "1"
@@ -2367,33 +2383,9 @@ items:
         requiredversion: "1"
         usedversion: 1.2.4
       parent:
-        name: d3-geo
-        requiredversion: ^1.12.1
-        usedversion: 1.12.1
-    - item:
-        name: d3-array
-        requiredversion: ^1.2.1
-        usedversion: 1.2.4
-      parent:
-        name: '@plotly/d3-sankey-circular'
-        requiredversion: 0.33.1
-        usedversion: 0.33.1
-    - item:
-        name: d3-array
-        requiredversion: "1"
-        usedversion: 1.2.4
-      parent:
         name: '@plotly/d3-sankey'
         requiredversion: 0.7.2
         usedversion: 0.7.2
-    - item:
-        name: d3-collection
-        requiredversion: ^1.0.4
-        usedversion: 1.0.7
-      parent:
-        name: '@plotly/d3-sankey-circular'
-        requiredversion: 0.33.1
-        usedversion: 0.33.1
     - item:
         name: d3-collection
         requiredversion: "1"
@@ -2402,6 +2394,14 @@ items:
         name: d3-force
         requiredversion: ^1.2.1
         usedversion: 1.2.1
+    - item:
+        name: d3-collection
+        requiredversion: ^1.0.4
+        usedversion: 1.0.7
+      parent:
+        name: '@plotly/d3-sankey-circular'
+        requiredversion: 0.33.1
+        usedversion: 0.33.1
     - item:
         name: d3-collection
         requiredversion: "1"
@@ -2452,14 +2452,6 @@ items:
         usedversion: 2.11.1
     - item:
         name: d3-geo
-        requiredversion: ^1.12.0
-        usedversion: 1.12.1
-      parent:
-        name: d3-geo-projection
-        requiredversion: ^2.9.0
-        usedversion: 2.9.0
-    - item:
-        name: d3-geo
         requiredversion: ^1.12.1
         usedversion: 1.12.1
       parent:
@@ -2467,6 +2459,14 @@ items:
         requiredversion: ^2.5.1
         usedversion: 2.11.1
     - item:
+        name: d3-geo
+        requiredversion: ^1.12.0
+        usedversion: 1.12.1
+      parent:
+        name: d3-geo-projection
+        requiredversion: ^2.9.0
+        usedversion: 2.9.0
+    - item:
         name: d3-geo-projection
         requiredversion: ^2.9.0
         usedversion: 2.9.0
@@ -2496,16 +2496,16 @@ items:
         usedversion: 1.4.0
       parent:
         name: plotly.js
-        requiredversion: ^2.5.1
-        usedversion: 2.11.1
+        requiredversion: ^1.35.0
+        usedversion: 1.58.5
     - item:
         name: d3-interpolate
         requiredversion: ^1.4.0
         usedversion: 1.4.0
       parent:
         name: plotly.js
-        requiredversion: ^1.35.0
-        usedversion: 1.58.5
+        requiredversion: ^2.5.1
+        usedversion: 2.11.1
     - item:
         name: d3-path
         requiredversion: "1"
@@ -2527,25 +2527,17 @@ items:
         requiredversion: ^1.2.0
         usedversion: 1.3.7
       parent:
-        name: '@plotly/d3-sankey-circular'
-        requiredversion: 0.33.1
-        usedversion: 0.33.1
+        name: '@plotly/d3-sankey'
+        requiredversion: 0.7.2
+        usedversion: 0.7.2
     - item:
         name: d3-shape
         requiredversion: ^1.2.0
         usedversion: 1.3.7
       parent:
-        name: '@plotly/d3-sankey'
-        requiredversion: 0.7.2
-        usedversion: 0.7.2
-    - item:
-        name: d3-time
-        requiredversion: "1"
-        usedversion: 1.1.0
-      parent:
-        name: d3-time-format
-        requiredversion: ^2.2.3
-        usedversion: 2.3.0
+        name: '@plotly/d3-sankey-circular'
+        requiredversion: 0.33.1
+        usedversion: 0.33.1
     - item:
         name: d3-time
         requiredversion: ^1.1.0
@@ -2555,13 +2547,13 @@ items:
         requiredversion: ^2.5.1
         usedversion: 2.11.1
     - item:
+        name: d3-time
+        requiredversion: "1"
+        usedversion: 1.1.0
+      parent:
         name: d3-time-format
         requiredversion: ^2.2.3
         usedversion: 2.3.0
-      parent:
-        name: plotly.js
-        requiredversion: ^2.5.1
-        usedversion: 2.11.1
     - item:
         name: d3-time-format
         requiredversion: ^2.2.3
@@ -2570,6 +2562,14 @@ items:
         name: plotly.js
         requiredversion: ^1.35.0
         usedversion: 1.58.5
+    - item:
+        name: d3-time-format
+        requiredversion: ^2.2.3
+        usedversion: 2.3.0
+      parent:
+        name: plotly.js
+        requiredversion: ^2.5.1
+        usedversion: 2.11.1
     - item:
         name: d3-timer
         requiredversion: "1"
@@ -2593,12 +2593,12 @@ items:
         usedversion: 7.17.3
     - item:
         name: debug
-        requiredversion: ^3.2.6
-        usedversion: 3.2.7
+        requiredversion: "2"
+        usedversion: 2.6.9
       parent:
-        name: needle
-        requiredversion: ^2.5.2
-        usedversion: 2.9.1
+        name: stream-parser
+        requiredversion: ~0.3.1
+        usedversion: 0.3.1
     - item:
         name: debug
         requiredversion: ^4.2.0
@@ -2609,12 +2609,12 @@ items:
         usedversion: 1.4.3
     - item:
         name: debug
-        requiredversion: "2"
-        usedversion: 2.6.9
+        requiredversion: ^3.2.6
+        usedversion: 3.2.7
       parent:
-        name: stream-parser
-        requiredversion: ~0.3.1
-        usedversion: 0.3.1
+        name: needle
+        requiredversion: ^2.5.2
+        usedversion: 2.9.1
     - item:
         name: deep-extend
         requiredversion: 0.6.0
@@ -2649,17 +2649,17 @@ items:
         requiredversion: ^1.1.6
         usedversion: 1.1.6
       parent:
-        name: plotly.js
-        requiredversion: ^1.35.0
-        usedversion: 1.58.5
+        name: alpha-complex
+        requiredversion: ^1.0.0
+        usedversion: 1.0.0
     - item:
         name: delaunay-triangulate
         requiredversion: ^1.1.6
         usedversion: 1.1.6
       parent:
-        name: alpha-complex
-        requiredversion: ^1.0.0
-        usedversion: 1.0.0
+        name: plotly.js
+        requiredversion: ^1.35.0
+        usedversion: 1.58.5
     - item:
         name: depcheck
         requiredversion: ^1.4.3
@@ -2710,14 +2710,6 @@ items:
         requiredversion: ^2.0.0
         usedversion: 2.0.0
       parent:
-        name: color-normalize
-        requiredversion: ^1.5.0
-        usedversion: 1.5.2
-    - item:
-        name: dtype
-        requiredversion: ^2.0.0
-        usedversion: 2.0.0
-      parent:
         name: '@plotly/point-cluster'
         requiredversion: ^3.1.9
         usedversion: 3.1.9
@@ -2726,9 +2718,9 @@ items:
         requiredversion: ^2.0.0
         usedversion: 2.0.0
       parent:
-        name: flatten-vertex-data
-        requiredversion: ^1.0.2
-        usedversion: 1.0.2
+        name: color-normalize
+        requiredversion: ^1.5.0
+        usedversion: 1.5.2
     - item:
         name: dtype
         requiredversion: ^2.0.0
@@ -2738,13 +2730,21 @@ items:
         requiredversion: 1.5.0
         usedversion: 1.5.0
     - item:
+        name: dtype
+        requiredversion: ^2.0.0
+        usedversion: 2.0.0
+      parent:
+        name: flatten-vertex-data
+        requiredversion: ^1.0.2
+        usedversion: 1.0.2
+    - item:
         name: dup
         requiredversion: ^1.0.0
         usedversion: 1.0.0
       parent:
-        name: gl-axes3d
-        requiredversion: ^1.5.3
-        usedversion: 1.5.3
+        name: gl-surface3d
+        requiredversion: ^1.6.0
+        usedversion: 1.6.0
     - item:
         name: dup
         requiredversion: ^1.0.0
@@ -2753,14 +2753,6 @@ items:
         name: typedarray-pool
         requiredversion: ^1.0.0
         usedversion: 1.2.0
-    - item:
-        name: dup
-        requiredversion: ^1.0.0
-        usedversion: 1.0.0
-      parent:
-        name: ndarray-gradient
-        requiredversion: ^1.0.0
-        usedversion: 1.0.1
     - item:
         name: dup
         requiredversion: ^1.0.0
@@ -2782,9 +2774,17 @@ items:
         requiredversion: ^1.0.0
         usedversion: 1.0.0
       parent:
-        name: gl-surface3d
-        requiredversion: ^1.6.0
-        usedversion: 1.6.0
+        name: gl-axes3d
+        requiredversion: ^1.5.3
+        usedversion: 1.5.3
+    - item:
+        name: dup
+        requiredversion: ^1.0.0
+        usedversion: 1.0.0
+      parent:
+        name: ndarray-gradient
+        requiredversion: ^1.0.0
+        usedversion: 1.0.1
     - item:
         name: duplexer2
         requiredversion: ^0.1.2
@@ -2803,20 +2803,20 @@ items:
         usedversion: 7.1.1
     - item:
         name: earcut
-        requiredversion: ^2.2.2
-        usedversion: 2.2.3
-      parent:
-        name: mapbox-gl
-        requiredversion: 1.10.1
-        usedversion: 1.10.1
-    - item:
-        name: earcut
         requiredversion: ^2.1.5
         usedversion: 2.2.3
       parent:
         name: regl-line2d
         requiredversion: ^3.0.18
         usedversion: 3.1.2
+    - item:
+        name: earcut
+        requiredversion: ^2.2.2
+        usedversion: 2.2.3
+      parent:
+        name: mapbox-gl
+        requiredversion: 1.10.1
+        usedversion: 1.10.1
     - item:
         name: edges-to-adjacency-list
         requiredversion: ^1.0.0
@@ -2883,14 +2883,6 @@ items:
         usedversion: 5.2.0
     - item:
         name: es5-ext
-        requiredversion: ^0.10.35
-        usedversion: 0.10.59
-      parent:
-        name: es6-iterator
-        requiredversion: ^2.0.3
-        usedversion: 2.0.3
-    - item:
-        name: es5-ext
         requiredversion: ^0.10.50
         usedversion: 0.10.59
       parent:
@@ -2906,13 +2898,13 @@ items:
         requiredversion: ^2.0.3
         usedversion: 2.0.3
     - item:
+        name: es5-ext
+        requiredversion: ^0.10.35
+        usedversion: 0.10.59
+      parent:
         name: es6-iterator
         requiredversion: ^2.0.3
         usedversion: 2.0.3
-      parent:
-        name: es5-ext
-        requiredversion: ^0.10.50
-        usedversion: 0.10.59
     - item:
         name: es6-iterator
         requiredversion: ^2.0.3
@@ -2921,6 +2913,14 @@ items:
         name: es6-weak-map
         requiredversion: ^2.0.3
         usedversion: 2.0.3
+    - item:
+        name: es6-iterator
+        requiredversion: ^2.0.3
+        usedversion: 2.0.3
+      parent:
+        name: es5-ext
+        requiredversion: ^0.10.50
+        usedversion: 0.10.59
     - item:
         name: es6-promise
         requiredversion: ^4.2.8
@@ -2939,14 +2939,6 @@ items:
         usedversion: 4.0.2
     - item:
         name: es6-symbol
-        requiredversion: ^3.1.1
-        usedversion: 3.1.3
-      parent:
-        name: es6-iterator
-        requiredversion: ^2.0.3
-        usedversion: 2.0.3
-    - item:
-        name: es6-symbol
         requiredversion: ^3.1.3
         usedversion: 3.1.3
       parent:
@@ -2959,6 +2951,14 @@ items:
         usedversion: 3.1.3
       parent:
         name: es6-weak-map
+        requiredversion: ^2.0.3
+        usedversion: 2.0.3
+    - item:
+        name: es6-symbol
+        requiredversion: ^3.1.1
+        usedversion: 3.1.3
+      parent:
+        name: es6-iterator
         requiredversion: ^2.0.3
         usedversion: 2.0.3
     - item:
@@ -3030,6 +3030,14 @@ items:
         requiredversion: ^2.0.2
         usedversion: 2.0.2
       parent:
+        name: '@vue/compiler-sfc'
+        requiredversion: ^3.0.5
+        usedversion: 3.2.31
+    - item:
+        name: estree-walker
+        requiredversion: ^2.0.2
+        usedversion: 2.0.2
+      parent:
         name: '@vue/reactivity-transform'
         requiredversion: 3.2.31
         usedversion: 3.2.31
@@ -3040,14 +3048,6 @@ items:
       parent:
         name: '@vue/compiler-core'
         requiredversion: 3.2.31
-        usedversion: 3.2.31
-    - item:
-        name: estree-walker
-        requiredversion: ^2.0.2
-        usedversion: 2.0.2
-      parent:
-        name: '@vue/compiler-sfc'
-        requiredversion: ^3.0.5
         usedversion: 3.2.31
     - item:
         name: esutils
@@ -3079,7 +3079,7 @@ items:
         usedversion: 1.6.0
       parent:
         name: es6-symbol
-        requiredversion: ^3.1.0
+        requiredversion: ^3.1.3
         usedversion: 3.1.3
     - item:
         name: extract-frustum-planes
@@ -3150,33 +3150,17 @@ items:
         requiredversion: 4.2.0
         usedversion: 4.2.0
       parent:
-        name: '@webdash-components/wd-confirm-dialog'
-        requiredversion: ^0.1.19
-        usedversion: 0.1.19
-    - item:
-        name: file-loader
-        requiredversion: 4.2.0
-        usedversion: 4.2.0
-      parent:
-        name: '@webdash-components/wd-field-set'
-        requiredversion: ^0.1.0
-        usedversion: 0.1.11
-    - item:
-        name: file-loader
-        requiredversion: 4.2.0
-        usedversion: 4.2.0
-      parent:
-        name: '@webdash-components/wd-widget-overlay'
-        requiredversion: ^0.3.7
-        usedversion: 0.3.10
-    - item:
-        name: file-loader
-        requiredversion: 4.2.0
-        usedversion: 4.2.0
-      parent:
         name: '@webdash-components/wd-progress-bar'
         requiredversion: 0.1.8
         usedversion: 0.1.8
+    - item:
+        name: file-loader
+        requiredversion: 4.2.0
+        usedversion: 4.2.0
+      parent:
+        name: '@webdash-components/wd-confirm-dialog'
+        requiredversion: ^0.1.19
+        usedversion: 0.1.19
     - item:
         name: file-loader
         requiredversion: 4.2.0
@@ -3202,13 +3186,21 @@ items:
         requiredversion: ^0.3.4
         usedversion: 0.3.4
     - item:
-        name: filtered-vector
-        requiredversion: ^1.2.1
-        usedversion: 1.2.5
+        name: file-loader
+        requiredversion: 4.2.0
+        usedversion: 4.2.0
       parent:
-        name: orbit-camera-controller
-        requiredversion: ^4.0.0
-        usedversion: 4.0.0
+        name: '@webdash-components/wd-widget-overlay'
+        requiredversion: ^0.3.7
+        usedversion: 0.3.10
+    - item:
+        name: file-loader
+        requiredversion: 4.2.0
+        usedversion: 4.2.0
+      parent:
+        name: '@webdash-components/wd-field-set'
+        requiredversion: ^0.1.0
+        usedversion: 0.1.11
     - item:
         name: filtered-vector
         requiredversion: ^1.2.1
@@ -3217,6 +3209,14 @@ items:
         name: turntable-camera-controller
         requiredversion: ^3.0.0
         usedversion: 3.0.1
+    - item:
+        name: filtered-vector
+        requiredversion: ^1.2.1
+        usedversion: 1.2.5
+      parent:
+        name: orbit-camera-controller
+        requiredversion: ^4.0.0
+        usedversion: 4.0.0
     - item:
         name: findup
         requiredversion: ^0.1.5
@@ -3254,14 +3254,6 @@ items:
         requiredversion: ^1.0.2
         usedversion: 1.0.2
       parent:
-        name: regl-scatter2d
-        requiredversion: ^3.2.1
-        usedversion: 3.2.8
-    - item:
-        name: flatten-vertex-data
-        requiredversion: ^1.0.2
-        usedversion: 1.0.2
-      parent:
         name: to-array-buffer
         requiredversion: ^3.0.0
         usedversion: 3.2.0
@@ -3273,6 +3265,14 @@ items:
         name: '@plotly/point-cluster'
         requiredversion: ^3.1.9
         usedversion: 3.1.9
+    - item:
+        name: flatten-vertex-data
+        requiredversion: ^1.0.2
+        usedversion: 1.0.2
+      parent:
+        name: regl-scatter2d
+        requiredversion: ^3.2.1
+        usedversion: 3.2.8
     - item:
         name: flatten-vertex-data
         requiredversion: ^1.0.2
@@ -3406,25 +3406,17 @@ items:
         requiredversion: ^2.1.2
         usedversion: 2.1.2
       parent:
-        name: gl-pointcloud2d
-        requiredversion: ^1.0.3
-        usedversion: 1.0.3
+        name: gl-error3d
+        requiredversion: ^1.0.16
+        usedversion: 1.0.16
     - item:
         name: gl-buffer
         requiredversion: ^2.1.2
         usedversion: 2.1.2
       parent:
-        name: gl-select-box
-        requiredversion: ^1.0.4
-        usedversion: 1.0.4
-    - item:
-        name: gl-buffer
-        requiredversion: ^2.1.2
-        usedversion: 2.1.2
-      parent:
-        name: gl-line3d
-        requiredversion: 1.2.1
-        usedversion: 1.2.1
+        name: gl-spikes3d
+        requiredversion: ^1.0.10
+        usedversion: 1.0.10
     - item:
         name: gl-buffer
         requiredversion: ^2.1.2
@@ -3446,41 +3438,9 @@ items:
         requiredversion: ^2.1.2
         usedversion: 2.1.2
       parent:
-        name: gl-contour2d
-        requiredversion: ^1.1.7
-        usedversion: 1.1.7
-    - item:
-        name: gl-buffer
-        requiredversion: ^2.1.2
-        usedversion: 2.1.2
-      parent:
-        name: gl-surface3d
-        requiredversion: ^1.6.0
-        usedversion: 1.6.0
-    - item:
-        name: gl-buffer
-        requiredversion: ^2.1.2
-        usedversion: 2.1.2
-      parent:
-        name: gl-scatter3d
-        requiredversion: ^1.2.3
-        usedversion: 1.2.3
-    - item:
-        name: gl-buffer
-        requiredversion: ^2.1.2
-        usedversion: 2.1.2
-      parent:
-        name: gl-cone3d
-        requiredversion: ^1.5.2
-        usedversion: 1.5.2
-    - item:
-        name: gl-buffer
-        requiredversion: ^2.1.2
-        usedversion: 2.1.2
-      parent:
-        name: gl-spikes3d
-        requiredversion: ^1.0.10
-        usedversion: 1.0.10
+        name: gl-line3d
+        requiredversion: 1.2.1
+        usedversion: 1.2.1
     - item:
         name: gl-buffer
         requiredversion: ^2.1.2
@@ -3502,9 +3462,49 @@ items:
         requiredversion: ^2.1.2
         usedversion: 2.1.2
       parent:
-        name: gl-error3d
-        requiredversion: ^1.0.16
-        usedversion: 1.0.16
+        name: gl-cone3d
+        requiredversion: ^1.5.2
+        usedversion: 1.5.2
+    - item:
+        name: gl-buffer
+        requiredversion: ^2.1.2
+        usedversion: 2.1.2
+      parent:
+        name: gl-pointcloud2d
+        requiredversion: ^1.0.3
+        usedversion: 1.0.3
+    - item:
+        name: gl-buffer
+        requiredversion: ^2.1.2
+        usedversion: 2.1.2
+      parent:
+        name: gl-surface3d
+        requiredversion: ^1.6.0
+        usedversion: 1.6.0
+    - item:
+        name: gl-buffer
+        requiredversion: ^2.1.2
+        usedversion: 2.1.2
+      parent:
+        name: gl-select-box
+        requiredversion: ^1.0.4
+        usedversion: 1.0.4
+    - item:
+        name: gl-buffer
+        requiredversion: ^2.1.2
+        usedversion: 2.1.2
+      parent:
+        name: gl-contour2d
+        requiredversion: ^1.1.7
+        usedversion: 1.1.7
+    - item:
+        name: gl-buffer
+        requiredversion: ^2.1.2
+        usedversion: 2.1.2
+      parent:
+        name: gl-scatter3d
+        requiredversion: ^1.2.3
+        usedversion: 1.2.3
     - item:
         name: gl-buffer
         requiredversion: ^2.1.2
@@ -3603,68 +3603,12 @@ items:
         usedversion: 1.0.0
     - item:
         name: gl-mat4
-        requiredversion: ^1.0.2
-        usedversion: 1.2.0
-      parent:
-        name: turntable-camera-controller
-        requiredversion: ^3.0.0
-        usedversion: 3.0.1
-    - item:
-        name: gl-mat4
-        requiredversion: ^1.0.1
-        usedversion: 1.2.0
-      parent:
-        name: mat4-interpolate
-        requiredversion: ^1.0.3
-        usedversion: 1.0.4
-    - item:
-        name: gl-mat4
         requiredversion: ^1.2.0
         usedversion: 1.2.0
       parent:
         name: gl-plot3d
         requiredversion: ^2.4.7
         usedversion: 2.4.7
-    - item:
-        name: gl-mat4
-        requiredversion: ^1.1.2
-        usedversion: 1.2.0
-      parent:
-        name: matrix-camera-controller
-        requiredversion: ^2.1.1
-        usedversion: 2.1.4
-    - item:
-        name: gl-mat4
-        requiredversion: ^1.2.0
-        usedversion: 1.2.0
-      parent:
-        name: plotly.js
-        requiredversion: ^2.5.1
-        usedversion: 2.11.1
-    - item:
-        name: gl-mat4
-        requiredversion: ^1.2.0
-        usedversion: 1.2.0
-      parent:
-        name: gl-surface3d
-        requiredversion: ^1.6.0
-        usedversion: 1.6.0
-    - item:
-        name: gl-mat4
-        requiredversion: ^1.2.0
-        usedversion: 1.2.0
-      parent:
-        name: gl-scatter3d
-        requiredversion: ^1.2.3
-        usedversion: 1.2.3
-    - item:
-        name: gl-mat4
-        requiredversion: ^1.2.0
-        usedversion: 1.2.0
-      parent:
-        name: gl-cone3d
-        requiredversion: ^1.5.2
-        usedversion: 1.5.2
     - item:
         name: gl-mat4
         requiredversion: ^1.2.0
@@ -3675,12 +3619,20 @@ items:
         usedversion: 1.58.5
     - item:
         name: gl-mat4
-        requiredversion: ^1.0.1
+        requiredversion: ^1.0.2
         usedversion: 1.2.0
       parent:
-        name: mat4-decompose
-        requiredversion: ^1.0.3
-        usedversion: 1.0.4
+        name: turntable-camera-controller
+        requiredversion: ^3.0.0
+        usedversion: 3.0.1
+    - item:
+        name: gl-mat4
+        requiredversion: ^1.2.0
+        usedversion: 1.2.0
+      parent:
+        name: gl-scatter3d
+        requiredversion: ^1.2.3
+        usedversion: 1.2.3
     - item:
         name: gl-mat4
         requiredversion: ^1.0.3
@@ -3694,9 +3646,49 @@ items:
         requiredversion: ^1.2.0
         usedversion: 1.2.0
       parent:
+        name: gl-mesh3d
+        requiredversion: ^2.3.1
+        usedversion: 2.3.1
+    - item:
+        name: gl-mat4
+        requiredversion: ^1.2.0
+        usedversion: 1.2.0
+      parent:
         name: gl-axes3d
         requiredversion: ^1.5.3
         usedversion: 1.5.3
+    - item:
+        name: gl-mat4
+        requiredversion: ^1.2.0
+        usedversion: 1.2.0
+      parent:
+        name: gl-surface3d
+        requiredversion: ^1.6.0
+        usedversion: 1.6.0
+    - item:
+        name: gl-mat4
+        requiredversion: ^1.2.0
+        usedversion: 1.2.0
+      parent:
+        name: gl-cone3d
+        requiredversion: ^1.5.2
+        usedversion: 1.5.2
+    - item:
+        name: gl-mat4
+        requiredversion: ^1.1.2
+        usedversion: 1.2.0
+      parent:
+        name: matrix-camera-controller
+        requiredversion: ^2.1.1
+        usedversion: 2.1.4
+    - item:
+        name: gl-mat4
+        requiredversion: ^1.0.1
+        usedversion: 1.2.0
+      parent:
+        name: mat4-interpolate
+        requiredversion: ^1.0.3
+        usedversion: 1.0.4
     - item:
         name: gl-mat4
         requiredversion: ^1.0.1
@@ -3710,9 +3702,17 @@ items:
         requiredversion: ^1.2.0
         usedversion: 1.2.0
       parent:
-        name: gl-mesh3d
-        requiredversion: ^2.3.1
-        usedversion: 2.3.1
+        name: plotly.js
+        requiredversion: ^2.5.1
+        usedversion: 2.11.1
+    - item:
+        name: gl-mat4
+        requiredversion: ^1.0.1
+        usedversion: 1.2.0
+      parent:
+        name: mat4-decompose
+        requiredversion: ^1.0.3
+        usedversion: 1.0.4
     - item:
         name: gl-matrix
         requiredversion: ^3.2.1
@@ -3782,57 +3782,17 @@ items:
         requiredversion: ^2.0.7
         usedversion: 2.0.7
       parent:
-        name: gl-plot3d
-        requiredversion: ^2.4.7
-        usedversion: 2.4.7
+        name: gl-plot2d
+        requiredversion: ^1.4.5
+        usedversion: 1.4.5
     - item:
         name: gl-select-static
         requiredversion: ^2.0.7
         usedversion: 2.0.7
       parent:
-        name: gl-plot2d
-        requiredversion: ^1.4.5
-        usedversion: 1.4.5
-    - item:
-        name: gl-shader
-        requiredversion: ^4.2.1
-        usedversion: 4.3.1
-      parent:
-        name: gl-plot2d
-        requiredversion: ^1.4.5
-        usedversion: 1.4.5
-    - item:
-        name: gl-shader
-        requiredversion: ^4.2.1
-        usedversion: 4.3.1
-      parent:
-        name: gl-cone3d
-        requiredversion: ^1.5.2
-        usedversion: 1.5.2
-    - item:
-        name: gl-shader
-        requiredversion: ^4.2.1
-        usedversion: 4.3.1
-      parent:
-        name: gl-pointcloud2d
-        requiredversion: ^1.0.3
-        usedversion: 1.0.3
-    - item:
-        name: gl-shader
-        requiredversion: ^4.2.1
-        usedversion: 4.3.1
-      parent:
-        name: gl-axes3d
-        requiredversion: ^1.5.3
-        usedversion: 1.5.3
-    - item:
-        name: gl-shader
-        requiredversion: ^4.2.1
-        usedversion: 4.3.1
-      parent:
-        name: gl-spikes3d
-        requiredversion: ^1.0.10
-        usedversion: 1.0.10
+        name: gl-plot3d
+        requiredversion: ^2.4.7
+        usedversion: 2.4.7
     - item:
         name: gl-shader
         requiredversion: ^4.2.1
@@ -3846,49 +3806,9 @@ items:
         requiredversion: ^4.2.1
         usedversion: 4.3.1
       parent:
-        name: gl-error3d
-        requiredversion: ^1.0.16
-        usedversion: 1.0.16
-    - item:
-        name: gl-shader
-        requiredversion: ^4.2.1
-        usedversion: 4.3.1
-      parent:
-        name: gl-mesh3d
-        requiredversion: ^2.3.1
-        usedversion: 2.3.1
-    - item:
-        name: gl-shader
-        requiredversion: ^4.2.1
-        usedversion: 4.3.1
-      parent:
-        name: gl-scatter3d
-        requiredversion: ^1.2.3
-        usedversion: 1.2.3
-    - item:
-        name: gl-shader
-        requiredversion: ^4.2.1
-        usedversion: 4.3.1
-      parent:
         name: gl-contour2d
         requiredversion: ^1.1.7
         usedversion: 1.1.7
-    - item:
-        name: gl-shader
-        requiredversion: ^4.2.1
-        usedversion: 4.3.1
-      parent:
-        name: gl-surface3d
-        requiredversion: ^1.6.0
-        usedversion: 1.6.0
-    - item:
-        name: gl-shader
-        requiredversion: ^4.2.1
-        usedversion: 4.3.1
-      parent:
-        name: gl-line3d
-        requiredversion: 1.2.1
-        usedversion: 1.2.1
     - item:
         name: gl-shader
         requiredversion: ^4.2.1
@@ -3905,6 +3825,86 @@ items:
         name: gl-select-box
         requiredversion: ^1.0.4
         usedversion: 1.0.4
+    - item:
+        name: gl-shader
+        requiredversion: ^4.2.1
+        usedversion: 4.3.1
+      parent:
+        name: gl-line3d
+        requiredversion: 1.2.1
+        usedversion: 1.2.1
+    - item:
+        name: gl-shader
+        requiredversion: ^4.2.1
+        usedversion: 4.3.1
+      parent:
+        name: gl-mesh3d
+        requiredversion: ^2.3.1
+        usedversion: 2.3.1
+    - item:
+        name: gl-shader
+        requiredversion: ^4.2.1
+        usedversion: 4.3.1
+      parent:
+        name: gl-plot2d
+        requiredversion: ^1.4.5
+        usedversion: 1.4.5
+    - item:
+        name: gl-shader
+        requiredversion: ^4.2.1
+        usedversion: 4.3.1
+      parent:
+        name: gl-error3d
+        requiredversion: ^1.0.16
+        usedversion: 1.0.16
+    - item:
+        name: gl-shader
+        requiredversion: ^4.2.1
+        usedversion: 4.3.1
+      parent:
+        name: gl-scatter3d
+        requiredversion: ^1.2.3
+        usedversion: 1.2.3
+    - item:
+        name: gl-shader
+        requiredversion: ^4.2.1
+        usedversion: 4.3.1
+      parent:
+        name: gl-surface3d
+        requiredversion: ^1.6.0
+        usedversion: 1.6.0
+    - item:
+        name: gl-shader
+        requiredversion: ^4.2.1
+        usedversion: 4.3.1
+      parent:
+        name: gl-pointcloud2d
+        requiredversion: ^1.0.3
+        usedversion: 1.0.3
+    - item:
+        name: gl-shader
+        requiredversion: ^4.2.1
+        usedversion: 4.3.1
+      parent:
+        name: gl-spikes3d
+        requiredversion: ^1.0.10
+        usedversion: 1.0.10
+    - item:
+        name: gl-shader
+        requiredversion: ^4.2.1
+        usedversion: 4.3.1
+      parent:
+        name: gl-cone3d
+        requiredversion: ^1.5.2
+        usedversion: 1.5.2
+    - item:
+        name: gl-shader
+        requiredversion: ^4.2.1
+        usedversion: 4.3.1
+      parent:
+        name: gl-axes3d
+        requiredversion: ^1.5.3
+        usedversion: 1.5.3
     - item:
         name: gl-spikes2d
         requiredversion: ^1.0.2
@@ -4014,22 +4014,6 @@ items:
         requiredversion: ^1.3.0
         usedversion: 1.3.0
       parent:
-        name: gl-scatter3d
-        requiredversion: ^1.2.3
-        usedversion: 1.2.3
-    - item:
-        name: gl-vao
-        requiredversion: ^1.3.0
-        usedversion: 1.3.0
-      parent:
-        name: gl-surface3d
-        requiredversion: ^1.6.0
-        usedversion: 1.6.0
-    - item:
-        name: gl-vao
-        requiredversion: ^1.3.0
-        usedversion: 1.3.0
-      parent:
         name: gl-cone3d
         requiredversion: ^1.5.2
         usedversion: 1.5.2
@@ -4038,17 +4022,9 @@ items:
         requiredversion: ^1.3.0
         usedversion: 1.3.0
       parent:
-        name: gl-axes3d
-        requiredversion: ^1.5.3
-        usedversion: 1.5.3
-    - item:
-        name: gl-vao
-        requiredversion: ^1.3.0
-        usedversion: 1.3.0
-      parent:
-        name: gl-mesh3d
-        requiredversion: ^2.3.1
-        usedversion: 2.3.1
+        name: gl-scatter3d
+        requiredversion: ^1.2.3
+        usedversion: 1.2.3
     - item:
         name: gl-vao
         requiredversion: ^1.3.0
@@ -4057,14 +4033,6 @@ items:
         name: gl-line3d
         requiredversion: 1.2.1
         usedversion: 1.2.1
-    - item:
-        name: gl-vao
-        requiredversion: ^1.2.0
-        usedversion: 1.3.0
-      parent:
-        name: a-big-triangle
-        requiredversion: ^1.0.3
-        usedversion: 1.0.3
     - item:
         name: gl-vao
         requiredversion: ^1.3.0
@@ -4078,17 +4046,57 @@ items:
         requiredversion: ^1.3.0
         usedversion: 1.3.0
       parent:
+        name: gl-mesh3d
+        requiredversion: ^2.3.1
+        usedversion: 2.3.1
+    - item:
+        name: gl-vao
+        requiredversion: ^1.3.0
+        usedversion: 1.3.0
+      parent:
+        name: gl-axes3d
+        requiredversion: ^1.5.3
+        usedversion: 1.5.3
+    - item:
+        name: gl-vao
+        requiredversion: ^1.3.0
+        usedversion: 1.3.0
+      parent:
+        name: gl-surface3d
+        requiredversion: ^1.6.0
+        usedversion: 1.6.0
+    - item:
+        name: gl-vao
+        requiredversion: ^1.3.0
+        usedversion: 1.3.0
+      parent:
         name: gl-error3d
         requiredversion: ^1.0.16
         usedversion: 1.0.16
     - item:
+        name: gl-vao
+        requiredversion: ^1.2.0
+        usedversion: 1.3.0
+      parent:
+        name: a-big-triangle
+        requiredversion: ^1.0.3
+        usedversion: 1.0.3
+    - item:
         name: gl-vec3
-        requiredversion: ^1.1.3
+        requiredversion: ^1.0.2
         usedversion: 1.1.3
       parent:
-        name: gl-streamtube3d
-        requiredversion: ^1.4.1
-        usedversion: 1.4.1
+        name: mat4-decompose
+        requiredversion: ^1.0.3
+        usedversion: 1.0.4
+    - item:
+        name: gl-vec3
+        requiredversion: ^1.0.3
+        usedversion: 1.1.3
+      parent:
+        name: matrix-camera-controller
+        requiredversion: ^2.1.1
+        usedversion: 2.1.4
     - item:
         name: gl-vec3
         requiredversion: ^1.0.2
@@ -4102,33 +4110,17 @@ items:
         requiredversion: ^1.1.3
         usedversion: 1.1.3
       parent:
+        name: gl-streamtube3d
+        requiredversion: ^1.4.1
+        usedversion: 1.4.1
+    - item:
+        name: gl-vec3
+        requiredversion: ^1.1.3
+        usedversion: 1.1.3
+      parent:
         name: gl-cone3d
         requiredversion: ^1.5.2
         usedversion: 1.5.2
-    - item:
-        name: gl-vec3
-        requiredversion: ^1.0.3
-        usedversion: 1.1.3
-      parent:
-        name: matrix-camera-controller
-        requiredversion: ^2.1.1
-        usedversion: 2.1.4
-    - item:
-        name: gl-vec3
-        requiredversion: ^1.0.3
-        usedversion: 1.1.3
-      parent:
-        name: gl-quat
-        requiredversion: ^1.0.0
-        usedversion: 1.0.0
-    - item:
-        name: gl-vec3
-        requiredversion: ^1.0.2
-        usedversion: 1.1.3
-      parent:
-        name: mat4-decompose
-        requiredversion: ^1.0.3
-        usedversion: 1.0.4
     - item:
         name: gl-vec3
         requiredversion: ^1.0.2
@@ -4138,17 +4130,9 @@ items:
         requiredversion: ^1.0.3
         usedversion: 1.0.4
     - item:
-        name: gl-vec4
-        requiredversion: ^1.0.1
-        usedversion: 1.0.1
-      parent:
-        name: gl-axes3d
-        requiredversion: ^1.5.3
-        usedversion: 1.5.3
-    - item:
-        name: gl-vec4
-        requiredversion: ^1.0.0
-        usedversion: 1.0.1
+        name: gl-vec3
+        requiredversion: ^1.0.3
+        usedversion: 1.1.3
       parent:
         name: gl-quat
         requiredversion: ^1.0.0
@@ -4161,6 +4145,22 @@ items:
         name: gl-streamtube3d
         requiredversion: ^1.4.1
         usedversion: 1.4.1
+    - item:
+        name: gl-vec4
+        requiredversion: ^1.0.0
+        usedversion: 1.0.1
+      parent:
+        name: gl-quat
+        requiredversion: ^1.0.0
+        usedversion: 1.0.0
+    - item:
+        name: gl-vec4
+        requiredversion: ^1.0.1
+        usedversion: 1.0.1
+      parent:
+        name: gl-axes3d
+        requiredversion: ^1.5.3
+        usedversion: 1.5.3
     - item:
         name: glob
         requiredversion: ^7.1.1
@@ -4190,14 +4190,6 @@ items:
         requiredversion: ^1.0.0
         usedversion: 1.0.0
       parent:
-        name: gl-cone3d
-        requiredversion: ^1.5.2
-        usedversion: 1.5.2
-    - item:
-        name: glsl-inverse
-        requiredversion: ^1.0.0
-        usedversion: 1.0.0
-      parent:
         name: gl-plot2d
         requiredversion: ^1.4.5
         usedversion: 1.4.5
@@ -4210,41 +4202,9 @@ items:
         requiredversion: ^1.4.1
         usedversion: 1.4.1
     - item:
-        name: glsl-out-of-range
-        requiredversion: ^1.0.4
-        usedversion: 1.0.4
-      parent:
-        name: gl-streamtube3d
-        requiredversion: ^1.4.1
-        usedversion: 1.4.1
-    - item:
-        name: glsl-out-of-range
-        requiredversion: ^1.0.4
-        usedversion: 1.0.4
-      parent:
-        name: gl-scatter3d
-        requiredversion: ^1.2.3
-        usedversion: 1.2.3
-    - item:
-        name: glsl-out-of-range
-        requiredversion: ^1.0.4
-        usedversion: 1.0.4
-      parent:
-        name: gl-error3d
-        requiredversion: ^1.0.16
-        usedversion: 1.0.16
-    - item:
-        name: glsl-out-of-range
-        requiredversion: ^1.0.4
-        usedversion: 1.0.4
-      parent:
-        name: gl-mesh3d
-        requiredversion: ^2.3.1
-        usedversion: 2.3.1
-    - item:
-        name: glsl-out-of-range
-        requiredversion: ^1.0.4
-        usedversion: 1.0.4
+        name: glsl-inverse
+        requiredversion: ^1.0.0
+        usedversion: 1.0.0
       parent:
         name: gl-cone3d
         requiredversion: ^1.5.2
@@ -4266,13 +4226,45 @@ items:
         requiredversion: ^1.6.0
         usedversion: 1.6.0
     - item:
-        name: glsl-resolve
-        requiredversion: 0.0.1
-        usedversion: 0.0.1
+        name: glsl-out-of-range
+        requiredversion: ^1.0.4
+        usedversion: 1.0.4
       parent:
-        name: glslify
-        requiredversion: ^7.0.0
-        usedversion: 7.1.1
+        name: gl-error3d
+        requiredversion: ^1.0.16
+        usedversion: 1.0.16
+    - item:
+        name: glsl-out-of-range
+        requiredversion: ^1.0.4
+        usedversion: 1.0.4
+      parent:
+        name: gl-cone3d
+        requiredversion: ^1.5.2
+        usedversion: 1.5.2
+    - item:
+        name: glsl-out-of-range
+        requiredversion: ^1.0.4
+        usedversion: 1.0.4
+      parent:
+        name: gl-streamtube3d
+        requiredversion: ^1.4.1
+        usedversion: 1.4.1
+    - item:
+        name: glsl-out-of-range
+        requiredversion: ^1.0.4
+        usedversion: 1.0.4
+      parent:
+        name: gl-mesh3d
+        requiredversion: ^2.3.1
+        usedversion: 2.3.1
+    - item:
+        name: glsl-out-of-range
+        requiredversion: ^1.0.4
+        usedversion: 1.0.4
+      parent:
+        name: gl-scatter3d
+        requiredversion: ^1.2.3
+        usedversion: 1.2.3
     - item:
         name: glsl-resolve
         requiredversion: 0.0.1
@@ -4281,6 +4273,14 @@ items:
         name: glslify-deps
         requiredversion: ^1.2.5
         usedversion: 1.3.2
+    - item:
+        name: glsl-resolve
+        requiredversion: 0.0.1
+        usedversion: 0.0.1
+      parent:
+        name: glslify
+        requiredversion: ^7.0.0
+        usedversion: 7.1.1
     - item:
         name: glsl-shader-name
         requiredversion: ^1.0.0
@@ -4310,17 +4310,17 @@ items:
         requiredversion: ^2.0.1
         usedversion: 2.0.1
       parent:
-        name: gl-cone3d
-        requiredversion: ^1.5.2
-        usedversion: 1.5.2
+        name: gl-streamtube3d
+        requiredversion: ^1.4.1
+        usedversion: 1.4.1
     - item:
         name: glsl-specular-cook-torrance
         requiredversion: ^2.0.1
         usedversion: 2.0.1
       parent:
-        name: gl-streamtube3d
-        requiredversion: ^1.4.1
-        usedversion: 1.4.1
+        name: gl-cone3d
+        requiredversion: ^1.5.2
+        usedversion: 1.5.2
     - item:
         name: glsl-specular-cook-torrance
         requiredversion: ^2.0.1
@@ -4347,20 +4347,20 @@ items:
         usedversion: 5.1.1
     - item:
         name: glsl-token-depth
-        requiredversion: ^1.1.1
-        usedversion: 1.1.2
-      parent:
-        name: glslify-bundle
-        requiredversion: ^5.0.0
-        usedversion: 5.1.1
-    - item:
-        name: glsl-token-depth
         requiredversion: ^1.1.0
         usedversion: 1.1.2
       parent:
         name: glsl-token-descope
         requiredversion: ^1.0.2
         usedversion: 1.0.2
+    - item:
+        name: glsl-token-depth
+        requiredversion: ^1.1.1
+        usedversion: 1.1.2
+      parent:
+        name: glslify-bundle
+        requiredversion: ^5.0.0
+        usedversion: 5.1.1
     - item:
         name: glsl-token-descope
         requiredversion: ^1.0.2
@@ -4406,13 +4406,21 @@ items:
         requiredversion: ^1.0.1
         usedversion: 1.0.1
       parent:
-        name: glsl-inject-defines
-        requiredversion: ^1.0.1
-        usedversion: 1.0.3
+        name: glslify-bundle
+        requiredversion: ^5.0.0
+        usedversion: 5.1.1
     - item:
         name: glsl-token-string
         requiredversion: ^1.0.1
         usedversion: 1.0.1
+      parent:
+        name: glsl-inject-defines
+        requiredversion: ^1.0.1
+        usedversion: 1.0.3
+    - item:
+        name: glsl-token-whitespace-trim
+        requiredversion: ^1.0.0
+        usedversion: 1.0.0
       parent:
         name: glslify-bundle
         requiredversion: ^5.0.0
@@ -4426,21 +4434,13 @@ items:
         requiredversion: ^7.0.0
         usedversion: 7.1.1
     - item:
-        name: glsl-token-whitespace-trim
-        requiredversion: ^1.0.0
-        usedversion: 1.0.0
+        name: glsl-tokenizer
+        requiredversion: ^2.0.2
+        usedversion: 2.1.5
       parent:
         name: glslify-bundle
         requiredversion: ^5.0.0
         usedversion: 5.1.1
-    - item:
-        name: glsl-tokenizer
-        requiredversion: ^2.0.0
-        usedversion: 2.1.5
-      parent:
-        name: glsl-token-defines
-        requiredversion: ^1.0.0
-        usedversion: 1.0.0
     - item:
         name: glsl-tokenizer
         requiredversion: ^2.0.0
@@ -4454,25 +4454,89 @@ items:
         requiredversion: ^2.0.2
         usedversion: 2.1.5
       parent:
+        name: glsl-shader-name
+        requiredversion: ^1.0.0
+        usedversion: 1.0.0
+    - item:
+        name: glsl-tokenizer
+        requiredversion: ^2.0.2
+        usedversion: 2.1.5
+      parent:
         name: glsl-inject-defines
         requiredversion: ^1.0.1
         usedversion: 1.0.3
     - item:
         name: glsl-tokenizer
-        requiredversion: ^2.0.2
+        requiredversion: ^2.0.0
         usedversion: 2.1.5
       parent:
-        name: glslify-bundle
-        requiredversion: ^5.0.0
-        usedversion: 5.1.1
-    - item:
-        name: glsl-tokenizer
-        requiredversion: ^2.0.2
-        usedversion: 2.1.5
-      parent:
-        name: glsl-shader-name
+        name: glsl-token-defines
         requiredversion: ^1.0.0
         usedversion: 1.0.0
+    - item:
+        name: glslify
+        requiredversion: ^7.0.0
+        usedversion: 7.1.1
+      parent:
+        name: gl-error3d
+        requiredversion: ^1.0.16
+        usedversion: 1.0.16
+    - item:
+        name: glslify
+        requiredversion: ^7.0.0
+        usedversion: 7.1.1
+      parent:
+        name: gl-line3d
+        requiredversion: 1.2.1
+        usedversion: 1.2.1
+    - item:
+        name: glslify
+        requiredversion: ^7.0.0
+        usedversion: 7.1.1
+      parent:
+        name: gl-scatter3d
+        requiredversion: ^1.2.3
+        usedversion: 1.2.3
+    - item:
+        name: glslify
+        requiredversion: ^7.0.0
+        usedversion: 7.1.1
+      parent:
+        name: gl-surface3d
+        requiredversion: ^1.6.0
+        usedversion: 1.6.0
+    - item:
+        name: glslify
+        requiredversion: ^7.0.0
+        usedversion: 7.1.1
+      parent:
+        name: gl-contour2d
+        requiredversion: ^1.1.7
+        usedversion: 1.1.7
+    - item:
+        name: glslify
+        requiredversion: ^7.0.0
+        usedversion: 7.1.1
+      parent:
+        name: gl-heatmap2d
+        requiredversion: ^1.1.0
+        usedversion: 1.1.1
+    - item:
+        name: glslify
+        requiredversion: ^7.0.0
+        usedversion: 7.1.1
+      parent:
+        name: gl-cone3d
+        requiredversion: ^1.5.2
+        usedversion: 1.5.2
+    - item:
+        name: glslify
+        requiredversion: ^7.1.1
+        usedversion: 7.1.1
+      parent:
+        name: plotly.js
+        requiredversion: ^2.5.1
+        usedversion: 2.11.1
     - item:
         name: glslify
         requiredversion: ^7.0.0
@@ -4494,33 +4558,9 @@ items:
         requiredversion: ^7.0.0
         usedversion: 7.1.1
       parent:
-        name: gl-streamtube3d
-        requiredversion: ^1.4.1
-        usedversion: 1.4.1
-    - item:
-        name: glslify
-        requiredversion: ^7.0.0
-        usedversion: 7.1.1
-      parent:
-        name: gl-select-box
-        requiredversion: ^1.0.4
-        usedversion: 1.0.4
-    - item:
-        name: glslify
-        requiredversion: ^7.1.1
-        usedversion: 7.1.1
-      parent:
-        name: plotly.js
-        requiredversion: ^2.5.1
-        usedversion: 2.11.1
-    - item:
-        name: glslify
-        requiredversion: ^7.0.0
-        usedversion: 7.1.1
-      parent:
-        name: gl-scatter3d
-        requiredversion: ^1.2.3
-        usedversion: 1.2.3
+        name: gl-plot3d
+        requiredversion: ^2.4.7
+        usedversion: 2.4.7
     - item:
         name: glslify
         requiredversion: ^7.0.0
@@ -4534,49 +4574,9 @@ items:
         requiredversion: ^7.0.0
         usedversion: 7.1.1
       parent:
-        name: gl-cone3d
-        requiredversion: ^1.5.2
-        usedversion: 1.5.2
-    - item:
-        name: glslify
-        requiredversion: ^7.0.0
-        usedversion: 7.1.1
-      parent:
-        name: gl-mesh3d
-        requiredversion: ^2.3.1
-        usedversion: 2.3.1
-    - item:
-        name: glslify
-        requiredversion: ^7.0.0
-        usedversion: 7.1.1
-      parent:
         name: gl-axes3d
         requiredversion: ^1.5.3
         usedversion: 1.5.3
-    - item:
-        name: glslify
-        requiredversion: ^7.0.0
-        usedversion: 7.1.1
-      parent:
-        name: regl-line2d
-        requiredversion: ^3.0.18
-        usedversion: 3.1.2
-    - item:
-        name: glslify
-        requiredversion: ^7.0.0
-        usedversion: 7.1.1
-      parent:
-        name: gl-surface3d
-        requiredversion: ^1.6.0
-        usedversion: 1.6.0
-    - item:
-        name: glslify
-        requiredversion: ^7.0.0
-        usedversion: 7.1.1
-      parent:
-        name: gl-spikes3d
-        requiredversion: ^1.0.10
-        usedversion: 1.0.10
     - item:
         name: glslify
         requiredversion: ^7.1.1
@@ -4590,41 +4590,41 @@ items:
         requiredversion: ^7.0.0
         usedversion: 7.1.1
       parent:
-        name: gl-plot3d
-        requiredversion: ^2.4.7
-        usedversion: 2.4.7
+        name: gl-spikes3d
+        requiredversion: ^1.0.10
+        usedversion: 1.0.10
     - item:
         name: glslify
         requiredversion: ^7.0.0
         usedversion: 7.1.1
       parent:
-        name: gl-error3d
-        requiredversion: ^1.0.16
-        usedversion: 1.0.16
+        name: gl-select-box
+        requiredversion: ^1.0.4
+        usedversion: 1.0.4
     - item:
         name: glslify
         requiredversion: ^7.0.0
         usedversion: 7.1.1
       parent:
-        name: gl-contour2d
-        requiredversion: ^1.1.7
-        usedversion: 1.1.7
+        name: gl-streamtube3d
+        requiredversion: ^1.4.1
+        usedversion: 1.4.1
     - item:
         name: glslify
         requiredversion: ^7.0.0
         usedversion: 7.1.1
       parent:
-        name: gl-line3d
-        requiredversion: 1.2.1
-        usedversion: 1.2.1
+        name: gl-mesh3d
+        requiredversion: ^2.3.1
+        usedversion: 2.3.1
     - item:
         name: glslify
         requiredversion: ^7.0.0
         usedversion: 7.1.1
       parent:
-        name: gl-heatmap2d
-        requiredversion: ^1.1.0
-        usedversion: 1.1.1
+        name: regl-line2d
+        requiredversion: ^3.0.18
+        usedversion: 3.1.2
     - item:
         name: glslify-bundle
         requiredversion: ^5.0.0
@@ -4679,7 +4679,7 @@ items:
         usedversion: 1.0.3
       parent:
         name: is-core-module
-        requiredversion: ^2.8.1
+        requiredversion: ^2.4.0
         usedversion: 2.8.1
     - item:
         name: has-flag
@@ -4695,12 +4695,20 @@ items:
         usedversion: 1.0.1
       parent:
         name: plotly.js
-        requiredversion: ^2.5.1
-        usedversion: 2.11.1
+        requiredversion: ^1.35.0
+        usedversion: 1.58.5
     - item:
         name: has-hover
         requiredversion: ^1.0.1
         usedversion: 1.0.1
+      parent:
+        name: plotly.js
+        requiredversion: ^2.5.1
+        usedversion: 2.11.1
+    - item:
+        name: has-passive-events
+        requiredversion: ^1.0.0
+        usedversion: 1.0.0
       parent:
         name: plotly.js
         requiredversion: ^1.35.0
@@ -4713,14 +4721,6 @@ items:
         name: gl-plot3d
         requiredversion: ^2.4.7
         usedversion: 2.4.7
-    - item:
-        name: has-passive-events
-        requiredversion: ^1.0.0
-        usedversion: 1.0.0
-      parent:
-        name: plotly.js
-        requiredversion: ^1.35.0
-        usedversion: 1.58.5
     - item:
         name: has-passive-events
         requiredversion: ^1.0.0
@@ -4816,20 +4816,20 @@ items:
         usedversion: 1.0.3
     - item:
         name: inherits
+        requiredversion: ^2.0.1
+        usedversion: 2.0.4
+      parent:
+        name: duplexify
+        requiredversion: ^3.4.5
+        usedversion: 3.7.1
+    - item:
+        name: inherits
         requiredversion: ~2.0.3
         usedversion: 2.0.4
       parent:
         name: readable-stream
         requiredversion: ^2.3.5
         usedversion: 2.3.7
-    - item:
-        name: inherits
-        requiredversion: ^2.0.1
-        usedversion: 2.0.4
-      parent:
-        name: from2
-        requiredversion: ^2.3.0
-        usedversion: 2.3.0
     - item:
         name: inherits
         requiredversion: ^2.0.3
@@ -4843,9 +4843,9 @@ items:
         requiredversion: ^2.0.1
         usedversion: 2.0.4
       parent:
-        name: duplexify
-        requiredversion: ^3.4.5
-        usedversion: 3.7.1
+        name: from2
+        requiredversion: ^2.3.0
+        usedversion: 2.3.0
     - item:
         name: inherits
         requiredversion: ^2.0.1
@@ -4875,17 +4875,17 @@ items:
         requiredversion: 2.2.4
         usedversion: 2.2.4
       parent:
-        name: scss-parser
-        requiredversion: ^1.0.4
-        usedversion: 1.0.5
+        name: query-ast
+        requiredversion: ^1.0.3
+        usedversion: 1.0.4
     - item:
         name: invariant
         requiredversion: 2.2.4
         usedversion: 2.2.4
       parent:
-        name: query-ast
-        requiredversion: ^1.0.3
-        usedversion: 1.0.4
+        name: scss-parser
+        requiredversion: ^1.0.4
+        usedversion: 1.0.5
     - item:
         name: invert-permutation
         requiredversion: ^1.0.0
@@ -4952,14 +4952,6 @@ items:
         usedversion: 3.2.0
     - item:
         name: is-browser
-        requiredversion: ^2.0.1
-        usedversion: 2.1.0
-      parent:
-        name: has-passive-events
-        requiredversion: ^1.0.0
-        usedversion: 1.0.0
-    - item:
-        name: is-browser
         requiredversion: ^2.1.0
         usedversion: 2.1.0
       parent:
@@ -4983,13 +4975,13 @@ items:
         requiredversion: ^1.0.1
         usedversion: 1.0.1
     - item:
-        name: is-buffer
-        requiredversion: ^2.0.3
-        usedversion: 2.0.5
+        name: is-browser
+        requiredversion: ^2.0.1
+        usedversion: 2.1.0
       parent:
-        name: pxls
-        requiredversion: ^2.0.0
-        usedversion: 2.3.2
+        name: has-passive-events
+        requiredversion: ^1.0.0
+        usedversion: 1.0.0
     - item:
         name: is-buffer
         requiredversion: ^1.0.2
@@ -4999,12 +4991,20 @@ items:
         requiredversion: ^1.0.15
         usedversion: 1.0.19
     - item:
+        name: is-buffer
+        requiredversion: ^2.0.3
+        usedversion: 2.0.5
+      parent:
+        name: pxls
+        requiredversion: ^2.0.0
+        usedversion: 2.3.2
+    - item:
         name: is-core-module
         requiredversion: ^2.8.1
         usedversion: 2.8.1
       parent:
         name: resolve
-        requiredversion: ^1.0.0
+        requiredversion: ^1.18.1
         usedversion: 1.22.0
     - item:
         name: is-core-module
@@ -5115,25 +5115,17 @@ items:
         requiredversion: ^1.0.1
         usedversion: 1.0.1
       parent:
-        name: gl-scatter3d
-        requiredversion: ^1.2.3
-        usedversion: 1.2.3
+        name: fast-isnumeric
+        requiredversion: ^1.1.4
+        usedversion: 1.1.4
     - item:
         name: is-string-blank
         requiredversion: ^1.0.1
         usedversion: 1.0.1
       parent:
-        name: fast-isnumeric
-        requiredversion: ^1.1.4
-        usedversion: 1.1.4
-    - item:
-        name: is-svg-path
-        requiredversion: ^1.0.1
-        usedversion: 1.0.2
-      parent:
-        name: svg-path-bounds
-        requiredversion: ^1.0.1
-        usedversion: 1.0.2
+        name: gl-scatter3d
+        requiredversion: ^1.2.3
+        usedversion: 1.2.3
     - item:
         name: is-svg-path
         requiredversion: ^1.0.1
@@ -5142,6 +5134,14 @@ items:
         name: svg-path-sdf
         requiredversion: ^1.1.3
         usedversion: 1.1.3
+    - item:
+        name: is-svg-path
+        requiredversion: ^1.0.1
+        usedversion: 1.0.2
+      parent:
+        name: svg-path-bounds
+        requiredversion: ^1.0.1
+        usedversion: 1.0.2
     - item:
         name: isarray
         requiredversion: ^2.0.1
@@ -5216,20 +5216,20 @@ items:
         usedversion: 6.12.6
     - item:
         name: json5
-        requiredversion: ^1.0.1
-        usedversion: 1.0.1
-      parent:
-        name: loader-utils
-        requiredversion: ^1.2.3
-        usedversion: 1.4.0
-    - item:
-        name: json5
         requiredversion: ^2.1.3
         usedversion: 2.2.1
       parent:
         name: depcheck
         requiredversion: ^1.4.3
         usedversion: 1.4.3
+    - item:
+        name: json5
+        requiredversion: ^1.0.1
+        usedversion: 1.0.1
+      parent:
+        name: loader-utils
+        requiredversion: ^1.2.3
+        usedversion: 1.4.0
     - item:
         name: kdbush
         requiredversion: ^3.0.0
@@ -5288,20 +5288,20 @@ items:
         usedversion: 0.2.4
     - item:
         name: lodash
-        requiredversion: ^4.17.20
-        usedversion: 4.17.21
-      parent:
-        name: depcheck
-        requiredversion: ^1.4.3
-        usedversion: 1.4.3
-    - item:
-        name: lodash
         requiredversion: ^4.17.21
         usedversion: 4.17.21
       parent:
         name: v-tooltip
         requiredversion: ^2.1.3
         usedversion: 2.1.3
+    - item:
+        name: lodash
+        requiredversion: ^4.17.20
+        usedversion: 4.17.21
+      parent:
+        name: depcheck
+        requiredversion: ^1.4.3
+        usedversion: 1.4.3
     - item:
         name: lodash
         requiredversion: ^4.17.5
@@ -5320,20 +5320,20 @@ items:
         usedversion: 7.2.3
     - item:
         name: loose-envify
-        requiredversion: ^1.0.0
-        usedversion: 1.4.0
-      parent:
-        name: invariant
-        requiredversion: 2.2.4
-        usedversion: 2.2.4
-    - item:
-        name: loose-envify
         requiredversion: ^1.2.0
         usedversion: 1.4.0
       parent:
         name: vue-clickaway
         requiredversion: ^2.2.2
         usedversion: 2.2.2
+    - item:
+        name: loose-envify
+        requiredversion: ^1.0.0
+        usedversion: 1.4.0
+      parent:
+        name: invariant
+        requiredversion: 2.2.4
+        usedversion: 2.2.4
     - item:
         name: lru-cache
         requiredversion: ^6.0.0
@@ -5363,17 +5363,17 @@ items:
         requiredversion: 0.0.1
         usedversion: 0.0.1
       parent:
-        name: ify-loader
-        requiredversion: 1.1.0
-        usedversion: 1.1.0
+        name: glslify-deps
+        requiredversion: ^1.2.5
+        usedversion: 1.3.2
     - item:
         name: map-limit
         requiredversion: 0.0.1
         usedversion: 0.0.1
       parent:
-        name: glslify-deps
-        requiredversion: ^1.2.5
-        usedversion: 1.3.2
+        name: ify-loader
+        requiredversion: 1.1.0
+        usedversion: 1.1.0
     - item:
         name: mapbox-gl
         requiredversion: 1.10.1
@@ -5437,14 +5437,6 @@ items:
         usedversion: 3.1.9
     - item:
         name: matrix-camera-controller
-        requiredversion: ^2.1.3
-        usedversion: 2.1.4
-      parent:
-        name: plotly.js
-        requiredversion: ^1.35.0
-        usedversion: 1.58.5
-    - item:
-        name: matrix-camera-controller
         requiredversion: ^2.1.1
         usedversion: 2.1.4
       parent:
@@ -5452,13 +5444,13 @@ items:
         requiredversion: ^2.0.0
         usedversion: 2.0.1
     - item:
-        name: minimatch
-        requiredversion: ^3.0.4
-        usedversion: 3.1.2
+        name: matrix-camera-controller
+        requiredversion: ^2.1.3
+        usedversion: 2.1.4
       parent:
-        name: multimatch
-        requiredversion: ^5.0.0
-        usedversion: 5.0.0
+        name: plotly.js
+        requiredversion: ^1.35.0
+        usedversion: 1.58.5
     - item:
         name: minimatch
         requiredversion: ^3.0.4
@@ -5468,6 +5460,14 @@ items:
         requiredversion: ^1.4.3
         usedversion: 1.4.3
     - item:
+        name: minimatch
+        requiredversion: ^3.0.4
+        usedversion: 3.1.2
+      parent:
+        name: multimatch
+        requiredversion: ^5.0.0
+        usedversion: 5.0.0
+    - item:
         name: minimist
         requiredversion: ^1.2.5
         usedversion: 1.2.6
@@ -5475,6 +5475,14 @@ items:
         name: '@mapbox/geojson-rewind'
         requiredversion: ^0.5.0
         usedversion: 0.5.1
+    - item:
+        name: minimist
+        requiredversion: ^1.2.5
+        usedversion: 1.2.6
+      parent:
+        name: mapbox-gl
+        requiredversion: 1.10.1
+        usedversion: 1.10.1
     - item:
         name: minimist
         requiredversion: ^1.2.0
@@ -5491,14 +5499,6 @@ items:
         name: glslify
         requiredversion: ^7.0.0
         usedversion: 7.1.1
-    - item:
-        name: minimist
-        requiredversion: ^1.2.5
-        usedversion: 1.2.6
-      parent:
-        name: mapbox-gl
-        requiredversion: 1.10.1
-        usedversion: 1.10.1
     - item:
         name: moment
         requiredversion: ^2.24.0
@@ -5528,17 +5528,17 @@ items:
         requiredversion: ^1.4.0
         usedversion: 1.4.0
       parent:
-        name: gl-plot3d
-        requiredversion: ^2.4.7
-        usedversion: 2.4.7
+        name: plotly.js
+        requiredversion: ^1.35.0
+        usedversion: 1.58.5
     - item:
         name: mouse-change
         requiredversion: ^1.4.0
         usedversion: 1.4.0
       parent:
-        name: plotly.js
-        requiredversion: ^1.35.0
-        usedversion: 1.58.5
+        name: gl-plot3d
+        requiredversion: ^2.4.7
+        usedversion: 2.4.7
     - item:
         name: mouse-change
         requiredversion: ^1.4.0
@@ -5592,25 +5592,17 @@ items:
         requiredversion: ^1.2.0
         usedversion: 1.2.0
       parent:
-        name: gl-plot3d
-        requiredversion: ^2.4.7
-        usedversion: 2.4.7
+        name: plotly.js
+        requiredversion: ^1.35.0
+        usedversion: 1.58.5
     - item:
         name: mouse-wheel
         requiredversion: ^1.2.0
         usedversion: 1.2.0
       parent:
-        name: plotly.js
-        requiredversion: ^1.35.0
-        usedversion: 1.58.5
-    - item:
-        name: ms
-        requiredversion: 2.1.2
-        usedversion: 2.1.2
-      parent:
-        name: debug
-        requiredversion: ^4.1.0
-        usedversion: 4.3.4
+        name: gl-plot3d
+        requiredversion: ^2.4.7
+        usedversion: 2.4.7
     - item:
         name: ms
         requiredversion: ^2.1.1
@@ -5619,6 +5611,14 @@ items:
         name: debug
         requiredversion: ^3.2.6
         usedversion: 3.2.7
+    - item:
+        name: ms
+        requiredversion: 2.1.2
+        usedversion: 2.1.2
+      parent:
+        name: debug
+        requiredversion: ^4.1.0
+        usedversion: 4.3.4
     - item:
         name: ms
         requiredversion: 2.0.0
@@ -5656,17 +5656,17 @@ items:
         requiredversion: ^1.0.0
         usedversion: 1.0.0
       parent:
-        name: glslify-bundle
-        requiredversion: ^5.0.0
-        usedversion: 5.1.1
+        name: mapbox-gl
+        requiredversion: 1.10.1
+        usedversion: 1.10.1
     - item:
         name: murmurhash-js
         requiredversion: ^1.0.0
         usedversion: 1.0.0
       parent:
-        name: mapbox-gl
-        requiredversion: 1.10.1
-        usedversion: 1.10.1
+        name: glslify-bundle
+        requiredversion: ^5.0.0
+        usedversion: 5.1.1
     - item:
         name: nanoid
         requiredversion: ^3.3.1
@@ -5688,33 +5688,9 @@ items:
         requiredversion: ^1.0.15
         usedversion: 1.0.19
       parent:
-        name: gl-buffer
-        requiredversion: ^2.1.2
-        usedversion: 2.1.2
-    - item:
-        name: ndarray
-        requiredversion: ^1.0.18
-        usedversion: 1.0.19
-      parent:
-        name: gl-contour2d
-        requiredversion: ^1.1.7
-        usedversion: 1.1.7
-    - item:
-        name: ndarray
-        requiredversion: ^1.0.19
-        usedversion: 1.0.19
-      parent:
-        name: plotly.js
-        requiredversion: ^1.35.0
-        usedversion: 1.58.5
-    - item:
-        name: ndarray
-        requiredversion: ^1.0.13
-        usedversion: 1.0.19
-      parent:
-        name: ndarray-pack
-        requiredversion: ^1.2.1
-        usedversion: 1.2.1
+        name: simplicial-complex-contour
+        requiredversion: ^1.0.2
+        usedversion: 1.0.2
     - item:
         name: ndarray
         requiredversion: ^1.0.11
@@ -5733,44 +5709,12 @@ items:
         usedversion: 2.0.7
     - item:
         name: ndarray
-        requiredversion: ^1.0.14
+        requiredversion: ^1.0.19
         usedversion: 1.0.19
       parent:
-        name: ndarray-scratch
-        requiredversion: ^1.2.0
-        usedversion: 1.2.0
-    - item:
-        name: ndarray
-        requiredversion: ^1.0.18
-        usedversion: 1.0.19
-      parent:
-        name: gl-cone3d
-        requiredversion: ^1.5.2
-        usedversion: 1.5.2
-    - item:
-        name: ndarray
-        requiredversion: ^1.0.15
-        usedversion: 1.0.19
-      parent:
-        name: gl-texture2d
-        requiredversion: ^2.1.0
-        usedversion: 2.1.0
-    - item:
-        name: ndarray
-        requiredversion: ^1.0.15
-        usedversion: 1.0.19
-      parent:
-        name: simplicial-complex-contour
-        requiredversion: ^1.0.2
-        usedversion: 1.0.2
-    - item:
-        name: ndarray
-        requiredversion: ^1.0.18
-        usedversion: 1.0.19
-      parent:
-        name: gl-surface3d
-        requiredversion: ^1.6.0
-        usedversion: 1.6.0
+        name: plotly.js
+        requiredversion: ^1.35.0
+        usedversion: 1.58.5
     - item:
         name: ndarray
         requiredversion: ^1.0.19
@@ -5784,17 +5728,73 @@ items:
         requiredversion: ^1.0.18
         usedversion: 1.0.19
       parent:
-        name: gl-line3d
-        requiredversion: 1.2.1
-        usedversion: 1.2.1
+        name: gl-mesh3d
+        requiredversion: ^2.3.1
+        usedversion: 2.3.1
     - item:
         name: ndarray
         requiredversion: ^1.0.18
         usedversion: 1.0.19
       parent:
-        name: gl-mesh3d
-        requiredversion: ^2.3.1
-        usedversion: 2.3.1
+        name: gl-cone3d
+        requiredversion: ^1.5.2
+        usedversion: 1.5.2
+    - item:
+        name: ndarray
+        requiredversion: ^1.0.18
+        usedversion: 1.0.19
+      parent:
+        name: gl-line3d
+        requiredversion: 1.2.1
+        usedversion: 1.2.1
+    - item:
+        name: ndarray
+        requiredversion: ^1.0.15
+        usedversion: 1.0.19
+      parent:
+        name: gl-buffer
+        requiredversion: ^2.1.2
+        usedversion: 2.1.2
+    - item:
+        name: ndarray
+        requiredversion: ^1.0.15
+        usedversion: 1.0.19
+      parent:
+        name: gl-texture2d
+        requiredversion: ^2.1.0
+        usedversion: 2.1.0
+    - item:
+        name: ndarray
+        requiredversion: ^1.0.18
+        usedversion: 1.0.19
+      parent:
+        name: gl-surface3d
+        requiredversion: ^1.6.0
+        usedversion: 1.6.0
+    - item:
+        name: ndarray
+        requiredversion: ^1.0.18
+        usedversion: 1.0.19
+      parent:
+        name: gl-contour2d
+        requiredversion: ^1.1.7
+        usedversion: 1.1.7
+    - item:
+        name: ndarray
+        requiredversion: ^1.0.14
+        usedversion: 1.0.19
+      parent:
+        name: ndarray-scratch
+        requiredversion: ^1.2.0
+        usedversion: 1.2.0
+    - item:
+        name: ndarray
+        requiredversion: ^1.0.13
+        usedversion: 1.0.19
+      parent:
+        name: ndarray-pack
+        requiredversion: ^1.2.1
+        usedversion: 1.2.1
     - item:
         name: ndarray-extract-contour
         requiredversion: ^1.0.0
@@ -5824,9 +5824,9 @@ items:
         requiredversion: ^1.2.2
         usedversion: 1.2.2
       parent:
-        name: gl-texture2d
-        requiredversion: ^2.1.0
-        usedversion: 2.1.0
+        name: gl-surface3d
+        requiredversion: ^1.6.0
+        usedversion: 1.6.0
     - item:
         name: ndarray-ops
         requiredversion: ^1.1.0
@@ -5837,20 +5837,20 @@ items:
         usedversion: 2.1.2
     - item:
         name: ndarray-ops
-        requiredversion: ^1.2.2
-        usedversion: 1.2.2
-      parent:
-        name: gl-surface3d
-        requiredversion: ^1.6.0
-        usedversion: 1.6.0
-    - item:
-        name: ndarray-ops
         requiredversion: ^1.2.1
         usedversion: 1.2.2
       parent:
         name: ndarray-scratch
         requiredversion: ^1.2.0
         usedversion: 1.2.0
+    - item:
+        name: ndarray-ops
+        requiredversion: ^1.2.2
+        usedversion: 1.2.2
+      parent:
+        name: gl-texture2d
+        requiredversion: ^2.1.0
+        usedversion: 2.1.0
     - item:
         name: ndarray-pack
         requiredversion: ^1.2.1
@@ -5968,9 +5968,17 @@ items:
         requiredversion: ^4.1.1
         usedversion: 4.1.1
       parent:
-        name: regl-line2d
-        requiredversion: ^3.0.18
-        usedversion: 3.1.2
+        name: regl-error2d
+        requiredversion: ^2.0.11
+        usedversion: 2.0.12
+    - item:
+        name: object-assign
+        requiredversion: ^4.1.0
+        usedversion: 4.1.1
+      parent:
+        name: world-calendars
+        requiredversion: ^1.0.3
+        usedversion: 1.0.3
     - item:
         name: object-assign
         requiredversion: ^4.1.0
@@ -5979,6 +5987,14 @@ items:
         name: gl-util
         requiredversion: ^3.1.2
         usedversion: 3.1.3
+    - item:
+        name: object-assign
+        requiredversion: ^4.1.1
+        usedversion: 4.1.1
+      parent:
+        name: regl-line2d
+        requiredversion: ^3.0.18
+        usedversion: 3.1.2
     - item:
         name: object-assign
         requiredversion: ^4.1.1
@@ -5996,30 +6012,6 @@ items:
         requiredversion: ^3.2.1
         usedversion: 3.2.8
     - item:
-        name: object-assign
-        requiredversion: ^4.1.1
-        usedversion: 4.1.1
-      parent:
-        name: regl-error2d
-        requiredversion: ^2.0.11
-        usedversion: 2.0.12
-    - item:
-        name: object-assign
-        requiredversion: ^4.1.0
-        usedversion: 4.1.1
-      parent:
-        name: world-calendars
-        requiredversion: ^1.0.3
-        usedversion: 1.0.3
-    - item:
-        name: object-keys
-        requiredversion: ^1.0.9
-        usedversion: 1.1.1
-      parent:
-        name: utils-copy-error
-        requiredversion: ^1.0.0
-        usedversion: 1.0.1
-    - item:
         name: object-keys
         requiredversion: ^1.0.9
         usedversion: 1.1.1
@@ -6035,6 +6027,14 @@ items:
         name: falafel
         requiredversion: ^2.1.0
         usedversion: 2.2.4
+    - item:
+        name: object-keys
+        requiredversion: ^1.0.9
+        usedversion: 1.1.1
+      parent:
+        name: utils-copy-error
+        requiredversion: ^1.0.0
+        usedversion: 1.0.1
     - item:
         name: once
         requiredversion: ~1.3.0
@@ -6112,6 +6112,22 @@ items:
         requiredversion: ^1.2.0
         usedversion: 1.2.0
       parent:
+        name: regl-line2d
+        requiredversion: ^3.0.18
+        usedversion: 3.1.2
+    - item:
+        name: parse-rect
+        requiredversion: ^1.2.0
+        usedversion: 1.2.0
+      parent:
+        name: '@plotly/point-cluster'
+        requiredversion: ^3.1.9
+        usedversion: 3.1.9
+    - item:
+        name: parse-rect
+        requiredversion: ^1.2.0
+        usedversion: 1.2.0
+      parent:
         name: regl-splom
         requiredversion: ^1.0.12
         usedversion: 1.0.14
@@ -6132,29 +6148,13 @@ items:
         requiredversion: ^3.2.1
         usedversion: 3.2.8
     - item:
-        name: parse-rect
-        requiredversion: ^1.2.0
-        usedversion: 1.2.0
-      parent:
-        name: '@plotly/point-cluster'
-        requiredversion: ^3.1.9
-        usedversion: 3.1.9
-    - item:
-        name: parse-rect
-        requiredversion: ^1.2.0
-        usedversion: 1.2.0
-      parent:
-        name: regl-line2d
-        requiredversion: ^3.0.18
-        usedversion: 3.1.2
-    - item:
         name: parse-svg-path
         requiredversion: ^0.1.2
         usedversion: 0.1.2
       parent:
-        name: plotly.js
-        requiredversion: ^1.35.0
-        usedversion: 1.58.5
+        name: svg-path-bounds
+        requiredversion: ^1.0.1
+        usedversion: 1.0.2
     - item:
         name: parse-svg-path
         requiredversion: ^0.1.2
@@ -6168,9 +6168,9 @@ items:
         requiredversion: ^0.1.2
         usedversion: 0.1.2
       parent:
-        name: svg-path-bounds
-        requiredversion: ^1.0.1
-        usedversion: 1.0.2
+        name: plotly.js
+        requiredversion: ^1.35.0
+        usedversion: 1.58.5
     - item:
         name: parse-svg-path
         requiredversion: ^0.1.2
@@ -6209,7 +6209,7 @@ items:
         usedversion: 1.0.7
       parent:
         name: resolve
-        requiredversion: ^1.0.0
+        requiredversion: ^1.18.1
         usedversion: 1.22.0
     - item:
         name: path-type
@@ -6224,17 +6224,17 @@ items:
         requiredversion: ^3.2.1
         usedversion: 3.2.1
       parent:
-        name: vt-pbf
-        requiredversion: ^3.1.1
-        usedversion: 3.1.3
+        name: mapbox-gl
+        requiredversion: 1.10.1
+        usedversion: 1.10.1
     - item:
         name: pbf
         requiredversion: ^3.2.1
         usedversion: 3.2.1
       parent:
-        name: mapbox-gl
-        requiredversion: 1.10.1
-        usedversion: 1.10.1
+        name: vt-pbf
+        requiredversion: ^3.1.1
+        usedversion: 3.1.3
     - item:
         name: performance-now
         requiredversion: ^2.1.0
@@ -6264,49 +6264,17 @@ items:
         requiredversion: ^1.2.0
         usedversion: 1.2.0
       parent:
-        name: gl-util
-        requiredversion: ^3.1.2
-        usedversion: 3.1.3
-    - item:
-        name: pick-by-alias
-        requiredversion: ^1.2.0
-        usedversion: 1.2.0
-      parent:
-        name: parse-rect
-        requiredversion: ^1.2.0
-        usedversion: 1.2.0
-    - item:
-        name: pick-by-alias
-        requiredversion: ^1.2.0
-        usedversion: 1.2.0
-      parent:
-        name: css-font
-        requiredversion: ^1.2.0
-        usedversion: 1.2.0
-    - item:
-        name: pick-by-alias
-        requiredversion: ^1.2.0
-        usedversion: 1.2.0
-      parent:
-        name: regl-scatter2d
-        requiredversion: ^3.2.1
-        usedversion: 3.2.8
-    - item:
-        name: pick-by-alias
-        requiredversion: ^1.2.0
-        usedversion: 1.2.0
-      parent:
-        name: regl-splom
-        requiredversion: ^1.0.12
-        usedversion: 1.0.14
-    - item:
-        name: pick-by-alias
-        requiredversion: ^1.2.0
-        usedversion: 1.2.0
-      parent:
         name: '@plotly/point-cluster'
         requiredversion: ^3.1.9
         usedversion: 3.1.9
+    - item:
+        name: pick-by-alias
+        requiredversion: ^1.2.0
+        usedversion: 1.2.0
+      parent:
+        name: regl-error2d
+        requiredversion: ^2.0.11
+        usedversion: 2.0.12
     - item:
         name: pick-by-alias
         requiredversion: ^1.2.0
@@ -6328,9 +6296,41 @@ items:
         requiredversion: ^1.2.0
         usedversion: 1.2.0
       parent:
-        name: regl-error2d
-        requiredversion: ^2.0.11
-        usedversion: 2.0.12
+        name: parse-rect
+        requiredversion: ^1.2.0
+        usedversion: 1.2.0
+    - item:
+        name: pick-by-alias
+        requiredversion: ^1.2.0
+        usedversion: 1.2.0
+      parent:
+        name: gl-util
+        requiredversion: ^3.1.2
+        usedversion: 3.1.3
+    - item:
+        name: pick-by-alias
+        requiredversion: ^1.2.0
+        usedversion: 1.2.0
+      parent:
+        name: regl-splom
+        requiredversion: ^1.0.12
+        usedversion: 1.0.14
+    - item:
+        name: pick-by-alias
+        requiredversion: ^1.2.0
+        usedversion: 1.2.0
+      parent:
+        name: regl-scatter2d
+        requiredversion: ^3.2.1
+        usedversion: 3.2.8
+    - item:
+        name: pick-by-alias
+        requiredversion: ^1.2.0
+        usedversion: 1.2.0
+      parent:
+        name: css-font
+        requiredversion: ^1.2.0
+        usedversion: 1.2.0
     - item:
         name: picocolors
         requiredversion: ^1.0.0
@@ -6373,17 +6373,17 @@ items:
         usedversion: 1.4.3
     - item:
         name: plotly.js
-        requiredversion: ^2.5.1
-        usedversion: 2.11.1
-      parent: null
-    - item:
-        name: plotly.js
         requiredversion: ^1.35.0
         usedversion: 1.58.5
       parent:
         name: '@statnett/vue-plotly'
         requiredversion: ^0.3.2
         usedversion: 0.3.2
+    - item:
+        name: plotly.js
+        requiredversion: ^2.5.1
+        usedversion: 2.11.1
+      parent: null
     - item:
         name: point-in-big-polygon
         requiredversion: ^2.0.1
@@ -6398,16 +6398,16 @@ items:
         usedversion: 1.2.0
       parent:
         name: plotly.js
-        requiredversion: ^1.35.0
-        usedversion: 1.58.5
+        requiredversion: ^2.5.1
+        usedversion: 2.11.1
     - item:
         name: polybooljs
         requiredversion: ^1.2.0
         usedversion: 1.2.0
       parent:
         name: plotly.js
-        requiredversion: ^2.5.1
-        usedversion: 2.11.1
+        requiredversion: ^1.35.0
+        usedversion: 1.58.5
     - item:
         name: polytope-closest-point
         requiredversion: ^1.0.0
@@ -6445,6 +6445,14 @@ items:
         requiredversion: ~1.1.2
         usedversion: 1.1.2
       parent:
+        name: levn
+        requiredversion: ~0.3.0
+        usedversion: 0.3.0
+    - item:
+        name: prelude-ls
+        requiredversion: ~1.1.2
+        usedversion: 1.1.2
+      parent:
         name: optionator
         requiredversion: ^0.8.1
         usedversion: 0.8.3
@@ -6456,14 +6464,6 @@ items:
         name: type-check
         requiredversion: ~0.3.2
         usedversion: 0.3.2
-    - item:
-        name: prelude-ls
-        requiredversion: ~1.1.2
-        usedversion: 1.1.2
-      parent:
-        name: levn
-        requiredversion: ~0.3.0
-        usedversion: 0.3.0
     - item:
         name: probe-image-size
         requiredversion: ^7.2.3
@@ -6562,12 +6562,12 @@ items:
         usedversion: 1.1.0
     - item:
         name: readable-stream
-        requiredversion: ^2.0.2
+        requiredversion: ^2.0.0
         usedversion: 2.3.7
       parent:
-        name: duplexer2
-        requiredversion: ^0.1.2
-        usedversion: 0.1.4
+        name: from2
+        requiredversion: ^2.3.0
+        usedversion: 2.3.0
     - item:
         name: readable-stream
         requiredversion: ^2.3.5
@@ -6578,12 +6578,12 @@ items:
         usedversion: 2.2.1
     - item:
         name: readable-stream
-        requiredversion: ^2.0.0
+        requiredversion: ^2.0.2
         usedversion: 2.3.7
       parent:
-        name: from2
-        requiredversion: ^2.3.0
-        usedversion: 2.3.0
+        name: duplexer2
+        requiredversion: ^0.1.2
+        usedversion: 0.1.4
     - item:
         name: readable-stream
         requiredversion: ^2.0.0
@@ -6594,12 +6594,12 @@ items:
         usedversion: 3.7.1
     - item:
         name: readable-stream
-        requiredversion: ~2.3.6
+        requiredversion: ^2.3.5
         usedversion: 2.3.7
       parent:
-        name: through2
-        requiredversion: ^2.0.1
-        usedversion: 2.0.5
+        name: bl
+        requiredversion: ^1.0.0
+        usedversion: 1.2.3
     - item:
         name: readable-stream
         requiredversion: ^2.2.2
@@ -6610,12 +6610,12 @@ items:
         usedversion: 1.6.2
     - item:
         name: readable-stream
-        requiredversion: ^2.3.5
+        requiredversion: ~2.3.6
         usedversion: 2.3.7
       parent:
-        name: bl
-        requiredversion: ^1.0.0
-        usedversion: 1.2.3
+        name: through2
+        requiredversion: ^2.0.1
+        usedversion: 2.0.5
     - item:
         name: readdirp
         requiredversion: ^3.5.0
@@ -6690,14 +6690,6 @@ items:
         usedversion: 1.58.5
     - item:
         name: regl-line2d
-        requiredversion: ^3.1.2
-        usedversion: 3.1.2
-      parent:
-        name: plotly.js
-        requiredversion: ^2.5.1
-        usedversion: 2.11.1
-    - item:
-        name: regl-line2d
         requiredversion: ^3.0.18
         usedversion: 3.1.2
       parent:
@@ -6705,13 +6697,13 @@ items:
         requiredversion: ^1.35.0
         usedversion: 1.58.5
     - item:
-        name: regl-scatter2d
-        requiredversion: ^3.2.1
-        usedversion: 3.2.8
+        name: regl-line2d
+        requiredversion: ^3.1.2
+        usedversion: 3.1.2
       parent:
         name: plotly.js
-        requiredversion: ^1.35.0
-        usedversion: 1.58.5
+        requiredversion: ^2.5.1
+        usedversion: 2.11.1
     - item:
         name: regl-scatter2d
         requiredversion: ^3.2.8
@@ -6729,9 +6721,9 @@ items:
         requiredversion: ^1.0.12
         usedversion: 1.0.14
     - item:
-        name: regl-splom
-        requiredversion: ^1.0.12
-        usedversion: 1.0.14
+        name: regl-scatter2d
+        requiredversion: ^3.2.1
+        usedversion: 3.2.8
       parent:
         name: plotly.js
         requiredversion: ^1.35.0
@@ -6744,6 +6736,14 @@ items:
         name: plotly.js
         requiredversion: ^2.5.1
         usedversion: 2.11.1
+    - item:
+        name: regl-splom
+        requiredversion: ^1.0.12
+        usedversion: 1.0.14
+      parent:
+        name: plotly.js
+        requiredversion: ^1.35.0
+        usedversion: 1.58.5
     - item:
         name: repeat-string
         requiredversion: ^1.3.0
@@ -6770,12 +6770,44 @@ items:
         usedversion: 1.4.3
     - item:
         name: resolve
+        requiredversion: ^1.10.0
+        usedversion: 1.22.0
+      parent:
+        name: normalize-package-data
+        requiredversion: ^2.0.0
+        usedversion: 2.5.0
+    - item:
+        name: resolve
+        requiredversion: ^1.1.5
+        usedversion: 1.22.0
+      parent:
+        name: glslify
+        requiredversion: ^7.0.0
+        usedversion: 7.1.1
+    - item:
+        name: resolve
         requiredversion: ^0.6.1
         usedversion: 0.6.3
       parent:
         name: glsl-resolve
         requiredversion: 0.0.1
         usedversion: 0.0.1
+    - item:
+        name: resolve
+        requiredversion: ^1.1.6
+        usedversion: 1.22.0
+      parent:
+        name: ify-loader
+        requiredversion: 1.1.0
+        usedversion: 1.1.0
+    - item:
+        name: resolve
+        requiredversion: ^1.18.1
+        usedversion: 1.22.0
+      parent:
+        name: depcheck
+        requiredversion: ^1.4.3
+        usedversion: 1.4.3
     - item:
         name: resolve
         requiredversion: ^1.0.0
@@ -6792,38 +6824,6 @@ items:
         name: d3-geo-projection
         requiredversion: ^2.9.0
         usedversion: 2.9.0
-    - item:
-        name: resolve
-        requiredversion: ^1.18.1
-        usedversion: 1.22.0
-      parent:
-        name: depcheck
-        requiredversion: ^1.4.3
-        usedversion: 1.4.3
-    - item:
-        name: resolve
-        requiredversion: ^1.1.5
-        usedversion: 1.22.0
-      parent:
-        name: glslify
-        requiredversion: ^7.0.0
-        usedversion: 7.1.1
-    - item:
-        name: resolve
-        requiredversion: ^1.1.6
-        usedversion: 1.22.0
-      parent:
-        name: ify-loader
-        requiredversion: 1.1.0
-        usedversion: 1.1.0
-    - item:
-        name: resolve
-        requiredversion: ^1.10.0
-        usedversion: 1.22.0
-      parent:
-        name: normalize-package-data
-        requiredversion: ^2.0.0
-        usedversion: 2.5.0
     - item:
         name: resolve-from
         requiredversion: ^4.0.0
@@ -6845,17 +6845,17 @@ items:
         requiredversion: ^1.0.0
         usedversion: 1.0.0
       parent:
-        name: gl-plot3d
-        requiredversion: ^2.4.7
-        usedversion: 2.4.7
+        name: mouse-wheel
+        requiredversion: ^1.2.0
+        usedversion: 1.2.0
     - item:
         name: right-now
         requiredversion: ^1.0.0
         usedversion: 1.0.0
       parent:
-        name: mouse-wheel
-        requiredversion: ^1.2.0
-        usedversion: 1.2.0
+        name: gl-plot3d
+        requiredversion: ^2.4.7
+        usedversion: 2.4.7
     - item:
         name: right-now
         requiredversion: ^1.0.0
@@ -6914,10 +6914,82 @@ items:
         usedversion: 1.0.0
     - item:
         name: robust-orientation
+        requiredversion: ^1.0.1
+        usedversion: 1.2.1
+      parent:
+        name: simplify-planar-graph
+        requiredversion: ^2.0.1
+        usedversion: 2.0.1
+    - item:
+        name: robust-orientation
         requiredversion: ^1.1.3
         usedversion: 1.2.1
       parent:
         name: robust-segment-intersect
+        requiredversion: ^1.0.1
+        usedversion: 1.0.1
+    - item:
+        name: robust-orientation
+        requiredversion: ^1.1.3
+        usedversion: 1.2.1
+      parent:
+        name: point-in-big-polygon
+        requiredversion: ^2.0.1
+        usedversion: 2.0.1
+    - item:
+        name: robust-orientation
+        requiredversion: ^1.1.3
+        usedversion: 1.2.1
+      parent:
+        name: affine-hull
+        requiredversion: ^1.0.0
+        usedversion: 1.0.0
+    - item:
+        name: robust-orientation
+        requiredversion: ^1.1.3
+        usedversion: 1.2.1
+      parent:
+        name: plotly.js
+        requiredversion: ^1.35.0
+        usedversion: 1.58.5
+    - item:
+        name: robust-orientation
+        requiredversion: ^1.1.3
+        usedversion: 1.2.1
+      parent:
+        name: monotone-convex-hull-2d
+        requiredversion: ^1.0.1
+        usedversion: 1.0.1
+    - item:
+        name: robust-orientation
+        requiredversion: ^1.1.3
+        usedversion: 1.2.1
+      parent:
+        name: slab-decomposition
+        requiredversion: ^1.0.1
+        usedversion: 1.0.3
+    - item:
+        name: robust-orientation
+        requiredversion: ^1.0.1
+        usedversion: 1.2.1
+      parent:
+        name: planar-graph-to-polyline
+        requiredversion: ^1.0.6
+        usedversion: 1.0.6
+    - item:
+        name: robust-orientation
+        requiredversion: ^1.0.2
+        usedversion: 1.2.1
+      parent:
+        name: compare-angle
+        requiredversion: ^1.0.0
+        usedversion: 1.0.1
+    - item:
+        name: robust-orientation
+        requiredversion: ^1.1.2
+        usedversion: 1.2.1
+      parent:
+        name: incremental-convex-hull
         requiredversion: ^1.0.1
         usedversion: 1.0.1
     - item:
@@ -6933,81 +7005,9 @@ items:
         requiredversion: ^1.1.3
         usedversion: 1.2.1
       parent:
-        name: slab-decomposition
-        requiredversion: ^1.0.1
-        usedversion: 1.0.3
-    - item:
-        name: robust-orientation
-        requiredversion: ^1.0.2
-        usedversion: 1.2.1
-      parent:
-        name: compare-angle
-        requiredversion: ^1.0.0
-        usedversion: 1.0.1
-    - item:
-        name: robust-orientation
-        requiredversion: ^1.1.3
-        usedversion: 1.2.1
-      parent:
-        name: point-in-big-polygon
-        requiredversion: ^2.0.1
-        usedversion: 2.0.1
-    - item:
-        name: robust-orientation
-        requiredversion: ^1.1.2
-        usedversion: 1.2.1
-      parent:
-        name: incremental-convex-hull
-        requiredversion: ^1.0.1
-        usedversion: 1.0.1
-    - item:
-        name: robust-orientation
-        requiredversion: ^1.1.3
-        usedversion: 1.2.1
-      parent:
         name: gl-axes3d
         requiredversion: ^1.5.3
         usedversion: 1.5.3
-    - item:
-        name: robust-orientation
-        requiredversion: ^1.1.3
-        usedversion: 1.2.1
-      parent:
-        name: plotly.js
-        requiredversion: ^1.35.0
-        usedversion: 1.58.5
-    - item:
-        name: robust-orientation
-        requiredversion: ^1.0.1
-        usedversion: 1.2.1
-      parent:
-        name: planar-graph-to-polyline
-        requiredversion: ^1.0.6
-        usedversion: 1.0.6
-    - item:
-        name: robust-orientation
-        requiredversion: ^1.1.3
-        usedversion: 1.2.1
-      parent:
-        name: affine-hull
-        requiredversion: ^1.0.0
-        usedversion: 1.0.0
-    - item:
-        name: robust-orientation
-        requiredversion: ^1.0.1
-        usedversion: 1.2.1
-      parent:
-        name: simplify-planar-graph
-        requiredversion: ^2.0.1
-        usedversion: 2.0.1
-    - item:
-        name: robust-orientation
-        requiredversion: ^1.1.3
-        usedversion: 1.2.1
-      parent:
-        name: monotone-convex-hull-2d
-        requiredversion: ^1.0.1
-        usedversion: 1.0.1
     - item:
         name: robust-product
         requiredversion: ^1.0.0
@@ -7024,6 +7024,14 @@ items:
         name: robust-product
         requiredversion: ^1.0.0
         usedversion: 1.0.0
+    - item:
+        name: robust-scale
+        requiredversion: ^1.0.0
+        usedversion: 1.0.2
+      parent:
+        name: robust-determinant
+        requiredversion: ^1.1.0
+        usedversion: 1.1.0
     - item:
         name: robust-scale
         requiredversion: ^1.0.0
@@ -7040,14 +7048,6 @@ items:
         name: robust-orientation
         requiredversion: ^1.1.2
         usedversion: 1.2.1
-    - item:
-        name: robust-scale
-        requiredversion: ^1.0.0
-        usedversion: 1.0.2
-      parent:
-        name: robust-determinant
-        requiredversion: ^1.1.0
-        usedversion: 1.1.0
     - item:
         name: robust-segment-intersect
         requiredversion: ^1.0.1
@@ -7061,57 +7061,17 @@ items:
         requiredversion: ^1.0.0
         usedversion: 1.0.0
       parent:
-        name: robust-in-sphere
-        requiredversion: ^1.1.3
+        name: robust-orientation
+        requiredversion: ^1.1.2
         usedversion: 1.2.1
     - item:
         name: robust-subtract
         requiredversion: ^1.0.0
         usedversion: 1.0.0
       parent:
-        name: robust-orientation
-        requiredversion: ^1.1.2
-        usedversion: 1.2.1
-    - item:
-        name: robust-sum
-        requiredversion: ^1.0.0
-        usedversion: 1.0.0
-      parent:
-        name: robust-orientation
-        requiredversion: ^1.1.2
-        usedversion: 1.2.1
-    - item:
-        name: robust-sum
-        requiredversion: ^1.0.0
-        usedversion: 1.0.0
-      parent:
         name: robust-in-sphere
         requiredversion: ^1.1.3
         usedversion: 1.2.1
-    - item:
-        name: robust-sum
-        requiredversion: ^1.0.0
-        usedversion: 1.0.0
-      parent:
-        name: robust-dot-product
-        requiredversion: ^1.0.0
-        usedversion: 1.0.0
-    - item:
-        name: robust-sum
-        requiredversion: ^1.0.0
-        usedversion: 1.0.0
-      parent:
-        name: split-polygon
-        requiredversion: ^1.0.0
-        usedversion: 1.0.0
-    - item:
-        name: robust-sum
-        requiredversion: ^1.0.0
-        usedversion: 1.0.0
-      parent:
-        name: robust-product
-        requiredversion: ^1.0.0
-        usedversion: 1.0.0
     - item:
         name: robust-sum
         requiredversion: ^1.0.0
@@ -7125,6 +7085,22 @@ items:
         requiredversion: ^1.0.0
         usedversion: 1.0.0
       parent:
+        name: robust-determinant
+        requiredversion: ^1.1.0
+        usedversion: 1.1.0
+    - item:
+        name: robust-sum
+        requiredversion: ^1.0.0
+        usedversion: 1.0.0
+      parent:
+        name: robust-orientation
+        requiredversion: ^1.1.2
+        usedversion: 1.2.1
+    - item:
+        name: robust-sum
+        requiredversion: ^1.0.0
+        usedversion: 1.0.0
+      parent:
         name: compare-angle
         requiredversion: ^1.0.0
         usedversion: 1.0.1
@@ -7133,9 +7109,33 @@ items:
         requiredversion: ^1.0.0
         usedversion: 1.0.0
       parent:
-        name: robust-determinant
-        requiredversion: ^1.1.0
-        usedversion: 1.1.0
+        name: robust-dot-product
+        requiredversion: ^1.0.0
+        usedversion: 1.0.0
+    - item:
+        name: robust-sum
+        requiredversion: ^1.0.0
+        usedversion: 1.0.0
+      parent:
+        name: robust-in-sphere
+        requiredversion: ^1.1.3
+        usedversion: 1.2.1
+    - item:
+        name: robust-sum
+        requiredversion: ^1.0.0
+        usedversion: 1.0.0
+      parent:
+        name: robust-product
+        requiredversion: ^1.0.0
+        usedversion: 1.0.0
+    - item:
+        name: robust-sum
+        requiredversion: ^1.0.0
+        usedversion: 1.0.0
+      parent:
+        name: split-polygon
+        requiredversion: ^1.0.0
+        usedversion: 1.0.0
     - item:
         name: rw
         requiredversion: ^1.3.3
@@ -7146,14 +7146,6 @@ items:
         usedversion: 1.10.1
     - item:
         name: safe-buffer
-        requiredversion: ^5.1.1
-        usedversion: 5.2.1
-      parent:
-        name: bl
-        requiredversion: ^1.0.0
-        usedversion: 1.2.3
-    - item:
-        name: safe-buffer
         requiredversion: ~5.1.1
         usedversion: 5.1.2
       parent:
@@ -7162,20 +7154,28 @@ items:
         usedversion: 2.3.7
     - item:
         name: safe-buffer
-        requiredversion: ~5.1.0
-        usedversion: 5.1.2
-      parent:
-        name: string_decoder
-        requiredversion: ~1.1.1
-        usedversion: 1.1.1
-    - item:
-        name: safe-buffer
         requiredversion: ^5.1.1
         usedversion: 5.2.1
       parent:
         name: bl
         requiredversion: ^2.2.1
         usedversion: 2.2.1
+    - item:
+        name: safe-buffer
+        requiredversion: ^5.1.1
+        usedversion: 5.2.1
+      parent:
+        name: bl
+        requiredversion: ^1.0.0
+        usedversion: 1.2.3
+    - item:
+        name: safe-buffer
+        requiredversion: ~5.1.0
+        usedversion: 5.1.2
+      parent:
+        name: string_decoder
+        requiredversion: ~1.1.1
+        usedversion: 1.1.1
     - item:
         name: sane-topojson
         requiredversion: ^4.0.0
@@ -7242,20 +7242,20 @@ items:
         usedversion: 5.1.1
     - item:
         name: signum
-        requiredversion: ^1.0.0
-        usedversion: 1.0.0
-      parent:
-        name: mouse-wheel
-        requiredversion: ^1.2.0
-        usedversion: 1.2.0
-    - item:
-        name: signum
         requiredversion: ^0.0.0
         usedversion: 0.0.0
       parent:
         name: compare-angle
         requiredversion: ^1.0.0
         usedversion: 1.0.1
+    - item:
+        name: signum
+        requiredversion: ^1.0.0
+        usedversion: 1.0.0
+      parent:
+        name: mouse-wheel
+        requiredversion: ^1.2.0
+        usedversion: 1.2.0
     - item:
         name: simplicial-complex
         requiredversion: ^1.0.0
@@ -7362,20 +7362,20 @@ items:
         usedversion: 1.5.3
     - item:
         name: sprintf-js
-        requiredversion: ~1.0.2
-        usedversion: 1.0.3
-      parent:
-        name: argparse
-        requiredversion: ^1.0.7
-        usedversion: 1.0.10
-    - item:
-        name: sprintf-js
         requiredversion: ^1.0.3
         usedversion: 1.1.2
       parent:
         name: gl-format-compiler-error
         requiredversion: ^1.0.2
         usedversion: 1.0.3
+    - item:
+        name: sprintf-js
+        requiredversion: ~1.0.2
+        usedversion: 1.0.3
+      parent:
+        name: argparse
+        requiredversion: ^1.0.7
+        usedversion: 1.0.10
     - item:
         name: stack-trace
         requiredversion: 0.0.9
@@ -7429,17 +7429,17 @@ items:
         requiredversion: ^4.2.0
         usedversion: 4.2.3
       parent:
-        name: cliui
-        requiredversion: ^7.0.2
-        usedversion: 7.0.4
+        name: yargs
+        requiredversion: ^16.1.0
+        usedversion: 16.2.0
     - item:
         name: string-width
         requiredversion: ^4.2.0
         usedversion: 4.2.3
       parent:
-        name: yargs
-        requiredversion: ^16.1.0
-        usedversion: 16.2.0
+        name: cliui
+        requiredversion: ^7.0.2
+        usedversion: 7.0.4
     - item:
         name: string-width
         requiredversion: ^4.1.0
@@ -7458,20 +7458,20 @@ items:
         usedversion: 2.3.7
     - item:
         name: strip-ansi
-        requiredversion: ^6.0.1
-        usedversion: 6.0.1
-      parent:
-        name: string-width
-        requiredversion: ^4.2.0
-        usedversion: 4.2.3
-    - item:
-        name: strip-ansi
         requiredversion: ^6.0.0
         usedversion: 6.0.1
       parent:
         name: cliui
         requiredversion: ^7.0.2
         usedversion: 7.0.4
+    - item:
+        name: strip-ansi
+        requiredversion: ^6.0.1
+        usedversion: 6.0.1
+      parent:
+        name: string-width
+        requiredversion: ^4.2.0
+        usedversion: 4.2.3
     - item:
         name: strip-ansi
         requiredversion: ^6.0.0
@@ -7526,16 +7526,16 @@ items:
         usedversion: 1.0.0
       parent:
         name: plotly.js
-        requiredversion: ^1.35.0
-        usedversion: 1.58.5
+        requiredversion: ^2.5.1
+        usedversion: 2.11.1
     - item:
         name: superscript-text
         requiredversion: ^1.0.0
         usedversion: 1.0.0
       parent:
         name: plotly.js
-        requiredversion: ^2.5.1
-        usedversion: 2.11.1
+        requiredversion: ^1.35.0
+        usedversion: 1.58.5
     - item:
         name: supports-color
         requiredversion: ^5.3.0
@@ -7550,16 +7550,16 @@ items:
         usedversion: 1.0.0
       parent:
         name: resolve
-        requiredversion: ^1.0.0
+        requiredversion: ^1.18.1
         usedversion: 1.22.0
     - item:
         name: surface-nets
-        requiredversion: ^1.0.0
+        requiredversion: ^1.0.2
         usedversion: 1.0.2
       parent:
-        name: vectorize-text
-        requiredversion: ^3.2.1
-        usedversion: 3.2.2
+        name: gl-contour2d
+        requiredversion: ^1.1.7
+        usedversion: 1.1.7
     - item:
         name: surface-nets
         requiredversion: ^1.0.2
@@ -7570,12 +7570,12 @@ items:
         usedversion: 1.6.0
     - item:
         name: surface-nets
-        requiredversion: ^1.0.2
+        requiredversion: ^1.0.0
         usedversion: 1.0.2
       parent:
-        name: gl-contour2d
-        requiredversion: ^1.1.7
-        usedversion: 1.1.7
+        name: vectorize-text
+        requiredversion: ^3.2.1
+        usedversion: 3.2.2
     - item:
         name: svg-arc-to-cubic-bezier
         requiredversion: ^3.0.0
@@ -7598,16 +7598,16 @@ items:
         usedversion: 1.1.3
       parent:
         name: plotly.js
-        requiredversion: ^1.35.0
-        usedversion: 1.58.5
+        requiredversion: ^2.5.1
+        usedversion: 2.11.1
     - item:
         name: svg-path-sdf
         requiredversion: ^1.1.3
         usedversion: 1.1.3
       parent:
         name: plotly.js
-        requiredversion: ^2.5.1
-        usedversion: 2.11.1
+        requiredversion: ^1.35.0
+        usedversion: 1.58.5
     - item:
         name: symbol-observable
         requiredversion: ^1.0.2
@@ -7654,16 +7654,16 @@ items:
         usedversion: 1.4.2
       parent:
         name: plotly.js
-        requiredversion: ^2.5.1
-        usedversion: 2.11.1
+        requiredversion: ^1.35.0
+        usedversion: 1.58.5
     - item:
         name: tinycolor2
         requiredversion: ^1.4.2
         usedversion: 1.4.2
       parent:
         name: plotly.js
-        requiredversion: ^1.35.0
-        usedversion: 1.58.5
+        requiredversion: ^2.5.1
+        usedversion: 2.11.1
     - item:
         name: tinyqueue
         requiredversion: ^2.0.3
@@ -7701,17 +7701,17 @@ items:
         requiredversion: ^1.1.0
         usedversion: 1.1.0
       parent:
-        name: regl-line2d
-        requiredversion: ^3.0.18
-        usedversion: 3.1.2
+        name: regl-scatter2d
+        requiredversion: ^3.2.1
+        usedversion: 3.2.8
     - item:
         name: to-float32
         requiredversion: ^1.1.0
         usedversion: 1.1.0
       parent:
-        name: regl-scatter2d
-        requiredversion: ^3.2.1
-        usedversion: 3.2.8
+        name: regl-line2d
+        requiredversion: ^3.0.18
+        usedversion: 3.1.2
     - item:
         name: to-px
         requiredversion: 1.0.1
@@ -7758,16 +7758,16 @@ items:
         usedversion: 3.1.0
       parent:
         name: plotly.js
-        requiredversion: ^1.35.0
-        usedversion: 1.58.5
+        requiredversion: ^2.5.1
+        usedversion: 2.11.1
     - item:
         name: topojson-client
         requiredversion: ^3.1.0
         usedversion: 3.1.0
       parent:
         name: plotly.js
-        requiredversion: ^2.5.1
-        usedversion: 2.11.1
+        requiredversion: ^1.35.0
+        usedversion: 1.58.5
     - item:
         name: tr46
         requiredversion: ~0.0.3
@@ -7802,22 +7802,6 @@ items:
         requiredversion: ^0.4.0
         usedversion: 0.4.4
       parent:
-        name: apollo-client
-        requiredversion: 2.6.10
-        usedversion: 2.6.10
-    - item:
-        name: ts-invariant
-        requiredversion: ^0.4.0
-        usedversion: 0.4.4
-      parent:
-        name: apollo-link-http-common
-        requiredversion: ^0.2.16
-        usedversion: 0.2.16
-    - item:
-        name: ts-invariant
-        requiredversion: ^0.4.0
-        usedversion: 0.4.4
-      parent:
         name: apollo-cache-inmemory
         requiredversion: ^1.6.6
         usedversion: 1.6.6
@@ -7838,21 +7822,45 @@ items:
         requiredversion: ^1.3.4
         usedversion: 1.3.4
     - item:
+        name: ts-invariant
+        requiredversion: ^0.4.0
+        usedversion: 0.4.4
+      parent:
+        name: apollo-client
+        requiredversion: 2.6.10
+        usedversion: 2.6.10
+    - item:
+        name: ts-invariant
+        requiredversion: ^0.4.0
+        usedversion: 0.4.4
+      parent:
+        name: apollo-link-http-common
+        requiredversion: ^0.2.16
+        usedversion: 0.2.16
+    - item:
         name: tslib
         requiredversion: ^1.9.3
         usedversion: 1.14.1
       parent:
-        name: '@wry/context'
-        requiredversion: ^0.4.0
-        usedversion: 0.4.4
+        name: apollo-link-context
+        requiredversion: 1.0.20
+        usedversion: 1.0.20
     - item:
         name: tslib
-        requiredversion: ^1.10.0
+        requiredversion: ^2.1.0
+        usedversion: 2.3.1
+      parent:
+        name: graphql-tag
+        requiredversion: ^2.10.3
+        usedversion: 2.12.6
+    - item:
+        name: tslib
+        requiredversion: ^1.9.3
         usedversion: 1.14.1
       parent:
-        name: apollo-utilities
-        requiredversion: ^1.3.4
-        usedversion: 1.3.4
+        name: apollo-link-http
+        requiredversion: ^1.5.17
+        usedversion: 1.5.17
     - item:
         name: tslib
         requiredversion: ^1.9.3
@@ -7866,41 +7874,9 @@ items:
         requiredversion: ^1.9.3
         usedversion: 1.14.1
       parent:
-        name: apollo-link
-        requiredversion: ^1.0.0
-        usedversion: 1.2.14
-    - item:
-        name: tslib
-        requiredversion: ^1.9.3
-        usedversion: 1.14.1
-      parent:
-        name: apollo-link-http
-        requiredversion: ^1.5.17
-        usedversion: 1.5.17
-    - item:
-        name: tslib
-        requiredversion: ^1.10.0
-        usedversion: 1.14.1
-      parent:
-        name: apollo-cache
-        requiredversion: 1.3.5
-        usedversion: 1.3.5
-    - item:
-        name: tslib
-        requiredversion: ^1.9.3
-        usedversion: 1.14.1
-      parent:
         name: apollo-link-http-common
         requiredversion: ^0.2.16
         usedversion: 0.2.16
-    - item:
-        name: tslib
-        requiredversion: ^1.10.0
-        usedversion: 1.14.1
-      parent:
-        name: apollo-cache-inmemory
-        requiredversion: ^1.6.6
-        usedversion: 1.6.6
     - item:
         name: tslib
         requiredversion: ^1.9.3
@@ -7922,9 +7898,9 @@ items:
         requiredversion: ^1.9.3
         usedversion: 1.14.1
       parent:
-        name: ts-invariant
-        requiredversion: ^0.4.0
-        usedversion: 0.4.4
+        name: apollo-link
+        requiredversion: ^1.0.0
+        usedversion: 1.2.14
     - item:
         name: tslib
         requiredversion: ^1.9.3
@@ -7935,20 +7911,20 @@ items:
         usedversion: 0.1.11
     - item:
         name: tslib
-        requiredversion: ^2.1.0
-        usedversion: 2.3.1
-      parent:
-        name: graphql-tag
-        requiredversion: ^2.10.3
-        usedversion: 2.12.6
-    - item:
-        name: tslib
         requiredversion: ^1.9.3
         usedversion: 1.14.1
       parent:
-        name: apollo-link-context
-        requiredversion: 1.0.20
-        usedversion: 1.0.20
+        name: ts-invariant
+        requiredversion: ^0.4.0
+        usedversion: 0.4.4
+    - item:
+        name: tslib
+        requiredversion: ^1.10.0
+        usedversion: 1.14.1
+      parent:
+        name: apollo-utilities
+        requiredversion: ^1.3.4
+        usedversion: 1.3.4
     - item:
         name: tslib
         requiredversion: ^1.10.0
@@ -7957,6 +7933,30 @@ items:
         name: apollo-client
         requiredversion: 2.6.10
         usedversion: 2.6.10
+    - item:
+        name: tslib
+        requiredversion: ^1.10.0
+        usedversion: 1.14.1
+      parent:
+        name: apollo-cache
+        requiredversion: 1.3.5
+        usedversion: 1.3.5
+    - item:
+        name: tslib
+        requiredversion: ^1.9.3
+        usedversion: 1.14.1
+      parent:
+        name: '@wry/context'
+        requiredversion: ^0.4.0
+        usedversion: 0.4.4
+    - item:
+        name: tslib
+        requiredversion: ^1.10.0
+        usedversion: 1.14.1
+      parent:
+        name: apollo-cache-inmemory
+        requiredversion: ^1.6.6
+        usedversion: 1.6.6
     - item:
         name: turntable-camera-controller
         requiredversion: ^3.0.0
@@ -7967,12 +7967,12 @@ items:
         usedversion: 2.0.1
     - item:
         name: two-product
-        requiredversion: ^1.0.2
-        usedversion: 1.0.2
-      parent:
-        name: robust-scale
         requiredversion: ^1.0.0
         usedversion: 1.0.2
+      parent:
+        name: robust-in-sphere
+        requiredversion: ^1.1.3
+        usedversion: 1.2.1
     - item:
         name: two-product
         requiredversion: ^1.0.0
@@ -7983,12 +7983,12 @@ items:
         usedversion: 1.1.0
     - item:
         name: two-product
-        requiredversion: ^1.0.0
+        requiredversion: ^1.0.2
         usedversion: 1.0.2
       parent:
-        name: robust-dot-product
+        name: robust-scale
         requiredversion: ^1.0.0
-        usedversion: 1.0.0
+        usedversion: 1.0.2
     - item:
         name: two-product
         requiredversion: ^1.0.0
@@ -8002,9 +8002,9 @@ items:
         requiredversion: ^1.0.0
         usedversion: 1.0.2
       parent:
-        name: robust-in-sphere
-        requiredversion: ^1.1.3
-        usedversion: 1.2.1
+        name: robust-dot-product
+        requiredversion: ^1.0.0
+        usedversion: 1.0.0
     - item:
         name: two-product
         requiredversion: ^1.0.2
@@ -8018,25 +8018,17 @@ items:
         requiredversion: ^1.0.0
         usedversion: 1.0.0
       parent:
-        name: compare-angle
+        name: robust-scale
         requiredversion: ^1.0.0
-        usedversion: 1.0.1
+        usedversion: 1.0.2
     - item:
         name: two-sum
         requiredversion: ^1.0.0
         usedversion: 1.0.0
       parent:
-        name: robust-scale
+        name: compare-angle
         requiredversion: ^1.0.0
-        usedversion: 1.0.2
-    - item:
-        name: type
-        requiredversion: ^2.5.0
-        usedversion: 2.6.0
-      parent:
-        name: ext
-        requiredversion: ^1.1.2
-        usedversion: 1.6.0
+        usedversion: 1.0.1
     - item:
         name: type
         requiredversion: ^1.0.1
@@ -8045,6 +8037,14 @@ items:
         name: d
         requiredversion: "1"
         usedversion: 1.0.1
+    - item:
+        name: type
+        requiredversion: ^2.5.0
+        usedversion: 2.6.0
+      parent:
+        name: ext
+        requiredversion: ^1.1.2
+        usedversion: 1.6.0
     - item:
         name: type-check
         requiredversion: ~0.3.2
@@ -8079,14 +8079,6 @@ items:
         usedversion: 1.6.2
     - item:
         name: typedarray-pool
-        requiredversion: ^1.1.0
-        usedversion: 1.2.0
-      parent:
-        name: gl-select-static
-        requiredversion: ^2.0.7
-        usedversion: 2.0.7
-    - item:
-        name: typedarray-pool
         requiredversion: ^1.0.0
         usedversion: 1.2.0
       parent:
@@ -8098,9 +8090,9 @@ items:
         requiredversion: ^1.1.0
         usedversion: 1.2.0
       parent:
-        name: gl-pointcloud2d
-        requiredversion: ^1.0.3
-        usedversion: 1.0.3
+        name: gl-select-static
+        requiredversion: ^2.0.7
+        usedversion: 2.0.7
     - item:
         name: typedarray-pool
         requiredversion: ^1.0.0
@@ -8111,20 +8103,36 @@ items:
         usedversion: 1.0.0
     - item:
         name: typedarray-pool
-        requiredversion: ^1.0.0
-        usedversion: 1.2.0
-      parent:
-        name: permutation-rank
-        requiredversion: ^1.0.0
-        usedversion: 1.0.0
-    - item:
-        name: typedarray-pool
         requiredversion: ^1.1.0
         usedversion: 1.2.0
       parent:
         name: gl-text
         requiredversion: ^1.1.8
         usedversion: 1.3.1
+    - item:
+        name: typedarray-pool
+        requiredversion: ^1.0.0
+        usedversion: 1.2.0
+      parent:
+        name: gl-buffer
+        requiredversion: ^2.1.2
+        usedversion: 2.1.2
+    - item:
+        name: typedarray-pool
+        requiredversion: ^1.0.0
+        usedversion: 1.2.0
+      parent:
+        name: ndarray-sort
+        requiredversion: ^1.0.0
+        usedversion: 1.0.1
+    - item:
+        name: typedarray-pool
+        requiredversion: ^1.2.0
+        usedversion: 1.2.0
+      parent:
+        name: gl-heatmap2d
+        requiredversion: ^1.1.0
+        usedversion: 1.1.1
     - item:
         name: typedarray-pool
         requiredversion: ^1.1.0
@@ -8138,25 +8146,9 @@ items:
         requiredversion: ^1.1.0
         usedversion: 1.2.0
       parent:
-        name: gl-scatter3d
-        requiredversion: ^1.2.3
-        usedversion: 1.2.3
-    - item:
-        name: typedarray-pool
-        requiredversion: ^1.0.2
-        usedversion: 1.2.0
-      parent:
-        name: ndarray-scratch
-        requiredversion: ^1.2.0
-        usedversion: 1.2.0
-    - item:
-        name: typedarray-pool
-        requiredversion: ^1.1.0
-        usedversion: 1.2.0
-      parent:
-        name: gl-surface3d
-        requiredversion: ^1.6.0
-        usedversion: 1.6.0
+        name: gl-pointcloud2d
+        requiredversion: ^1.0.3
+        usedversion: 1.0.3
     - item:
         name: typedarray-pool
         requiredversion: ^1.1.0
@@ -8170,17 +8162,25 @@ items:
         requiredversion: ^1.1.0
         usedversion: 1.2.0
       parent:
+        name: gl-scatter3d
+        requiredversion: ^1.2.3
+        usedversion: 1.2.3
+    - item:
+        name: typedarray-pool
+        requiredversion: ^1.1.0
+        usedversion: 1.2.0
+      parent:
         name: simplicial-complex-contour
         requiredversion: ^1.0.2
         usedversion: 1.0.2
     - item:
         name: typedarray-pool
-        requiredversion: ^1.0.0
+        requiredversion: ^1.0.2
         usedversion: 1.2.0
       parent:
-        name: ndarray-sort
-        requiredversion: ^1.0.0
-        usedversion: 1.0.1
+        name: ndarray-scratch
+        requiredversion: ^1.2.0
+        usedversion: 1.2.0
     - item:
         name: typedarray-pool
         requiredversion: ^1.1.0
@@ -8191,28 +8191,20 @@ items:
         usedversion: 2.1.0
     - item:
         name: typedarray-pool
-        requiredversion: ^1.2.0
+        requiredversion: ^1.1.0
         usedversion: 1.2.0
       parent:
-        name: gl-heatmap2d
-        requiredversion: ^1.1.0
-        usedversion: 1.1.1
+        name: gl-surface3d
+        requiredversion: ^1.6.0
+        usedversion: 1.6.0
     - item:
         name: typedarray-pool
         requiredversion: ^1.0.0
         usedversion: 1.2.0
       parent:
-        name: gl-buffer
-        requiredversion: ^2.1.2
-        usedversion: 2.1.2
-    - item:
-        name: union-find
-        requiredversion: ~0.0.3
-        usedversion: 0.0.4
-      parent:
-        name: simplicial-complex
-        requiredversion: ^0.3.3
-        usedversion: 0.3.3
+        name: permutation-rank
+        requiredversion: ^1.0.0
+        usedversion: 1.0.0
     - item:
         name: union-find
         requiredversion: ^1.0.2
@@ -8221,6 +8213,14 @@ items:
         name: clean-pslg
         requiredversion: ^1.1.2
         usedversion: 1.1.2
+    - item:
+        name: union-find
+        requiredversion: ~0.0.3
+        usedversion: 0.0.4
+      parent:
+        name: simplicial-complex
+        requiredversion: ^0.3.3
+        usedversion: 0.3.3
     - item:
         name: uniq
         requiredversion: ^1.0.0
@@ -8234,9 +8234,9 @@ items:
         requiredversion: ^1.0.0
         usedversion: 1.0.1
       parent:
-        name: edges-to-adjacency-list
+        name: cwise-compiler
         requiredversion: ^1.0.0
-        usedversion: 1.0.0
+        usedversion: 1.1.3
     - item:
         name: uniq
         requiredversion: ^1.0.1
@@ -8250,9 +8250,9 @@ items:
         requiredversion: ^1.0.0
         usedversion: 1.0.1
       parent:
-        name: cwise-compiler
+        name: edges-to-adjacency-list
         requiredversion: ^1.0.0
-        usedversion: 1.1.3
+        usedversion: 1.0.0
     - item:
         name: uniq
         requiredversion: ^1.0.0
@@ -8311,20 +8311,20 @@ items:
         usedversion: 2.3.7
     - item:
         name: utils-copy
-        requiredversion: ^1.0.0
-        usedversion: 1.1.1
-      parent:
-        name: compute-dims
-        requiredversion: ^1.1.0
-        usedversion: 1.1.0
-    - item:
-        name: utils-copy
         requiredversion: ^1.1.0
         usedversion: 1.1.1
       parent:
         name: utils-copy-error
         requiredversion: ^1.0.0
         usedversion: 1.0.1
+    - item:
+        name: utils-copy
+        requiredversion: ^1.0.0
+        usedversion: 1.1.1
+      parent:
+        name: compute-dims
+        requiredversion: ^1.1.0
+        usedversion: 1.1.0
     - item:
         name: utils-copy-error
         requiredversion: ^1.0.0
@@ -8415,17 +8415,17 @@ items:
         requiredversion: ^1.0.0
         usedversion: 1.0.0
       parent:
-        name: validate.io-array-like
-        requiredversion: ^1.0.1
-        usedversion: 1.0.2
+        name: utils-indexof
+        requiredversion: ^1.0.0
+        usedversion: 1.0.0
     - item:
         name: validate.io-integer-primitive
         requiredversion: ^1.0.0
         usedversion: 1.0.0
       parent:
-        name: utils-indexof
-        requiredversion: ^1.0.0
-        usedversion: 1.0.0
+        name: validate.io-array-like
+        requiredversion: ^1.0.1
+        usedversion: 1.0.2
     - item:
         name: validate.io-matrix-like
         requiredversion: ^1.0.2
@@ -8495,17 +8495,17 @@ items:
         requiredversion: ^3.2.1
         usedversion: 3.2.2
       parent:
-        name: gl-axes3d
-        requiredversion: ^1.5.3
-        usedversion: 1.5.3
+        name: gl-scatter3d
+        requiredversion: ^1.2.3
+        usedversion: 1.2.3
     - item:
         name: vectorize-text
         requiredversion: ^3.2.1
         usedversion: 3.2.2
       parent:
-        name: gl-scatter3d
-        requiredversion: ^1.2.3
-        usedversion: 1.2.3
+        name: gl-axes3d
+        requiredversion: ^1.5.3
+        usedversion: 1.5.3
     - item:
         name: vt-pbf
         requiredversion: ^3.1.1
@@ -8519,33 +8519,9 @@ items:
         requiredversion: 2.6.10
         usedversion: 2.6.10
       parent:
-        name: '@webdash-components/wd-widget-overlay'
-        requiredversion: ^0.3.7
-        usedversion: 0.3.10
-    - item:
-        name: vue
-        requiredversion: ^2.6.9
-        usedversion: 2.6.14
-      parent:
-        name: vue-ctk-date-time-picker
-        requiredversion: 2.5.0
-        usedversion: 2.5.0
-    - item:
-        name: vue
-        requiredversion: 2.6.10
-        usedversion: 2.6.10
-      parent:
-        name: '@webdash-components/wd-confirm-dialog'
-        requiredversion: ^0.1.19
-        usedversion: 0.1.19
-    - item:
-        name: vue
-        requiredversion: ^2.6.10
-        usedversion: 2.6.14
-      parent:
-        name: vue-easy-dnd
-        requiredversion: 1.6.1
-        usedversion: 1.6.1
+        name: '@webdash-components/wd-modal-dialog'
+        requiredversion: ^0.1.9
+        usedversion: 0.1.15
     - item:
         name: vue
         requiredversion: ^2.6.11
@@ -8564,9 +8540,33 @@ items:
         requiredversion: 2.6.10
         usedversion: 2.6.10
       parent:
-        name: '@webdash-components/wd-modal-dialog'
-        requiredversion: ^0.1.9
-        usedversion: 0.1.15
+        name: '@webdash-components/wd-confirm-dialog'
+        requiredversion: ^0.1.19
+        usedversion: 0.1.19
+    - item:
+        name: vue
+        requiredversion: ^2.6.9
+        usedversion: 2.6.14
+      parent:
+        name: vue-ctk-date-time-picker
+        requiredversion: 2.5.0
+        usedversion: 2.5.0
+    - item:
+        name: vue
+        requiredversion: ^2.6.10
+        usedversion: 2.6.14
+      parent:
+        name: vue-easy-dnd
+        requiredversion: 1.6.1
+        usedversion: 1.6.1
+    - item:
+        name: vue
+        requiredversion: 2.6.10
+        usedversion: 2.6.10
+      parent:
+        name: '@webdash-components/wd-vue-toast'
+        requiredversion: 0.1.23
+        usedversion: 0.1.23
     - item:
         name: vue
         requiredversion: 2.6.10
@@ -8588,9 +8588,17 @@ items:
         requiredversion: 2.6.10
         usedversion: 2.6.10
       parent:
-        name: '@webdash-components/wd-vue-toast'
-        requiredversion: 0.1.23
-        usedversion: 0.1.23
+        name: '@webdash-components/wd-widget-overlay'
+        requiredversion: ^0.3.7
+        usedversion: 0.3.10
+    - item:
+        name: vue-class-component
+        requiredversion: ^7.0.2
+        usedversion: 7.2.6
+      parent:
+        name: vue-easy-dnd
+        requiredversion: 1.6.1
+        usedversion: 1.6.1
     - item:
         name: vue-class-component
         requiredversion: ^7.1.0
@@ -8601,25 +8609,17 @@ items:
         usedversion: 8.3.0
     - item:
         name: vue-class-component
-        requiredversion: ^7.2.3
-        usedversion: 7.2.6
-      parent: null
-    - item:
-        name: vue-class-component
         requiredversion: ^7.1.0
         usedversion: 7.2.6
       parent:
         name: vue-property-decorator
-        requiredversion: ^8.4.2
+        requiredversion: ^8.1.0
         usedversion: 8.5.1
     - item:
         name: vue-class-component
-        requiredversion: ^7.0.2
+        requiredversion: ^7.2.3
         usedversion: 7.2.6
-      parent:
-        name: vue-easy-dnd
-        requiredversion: 1.6.1
-        usedversion: 1.6.1
+      parent: null
     - item:
         name: vue-clickaway
         requiredversion: ^2.2.2
@@ -8638,33 +8638,9 @@ items:
         requiredversion: 1.0.4-RC
         usedversion: 1.0.4-RC
       parent:
-        name: '@webdash-components/wd-field-set'
-        requiredversion: ^0.1.0
-        usedversion: 0.1.11
-    - item:
-        name: vue-css-ts
-        requiredversion: 1.0.4-RC
-        usedversion: 1.0.4-RC
-      parent:
-        name: '@webdash-components/wd-confirm-dialog'
-        requiredversion: ^0.1.19
-        usedversion: 0.1.19
-    - item:
-        name: vue-css-ts
-        requiredversion: 1.0.4-RC
-        usedversion: 1.0.4-RC
-      parent:
-        name: '@webdash-components/wd-progress-bar'
-        requiredversion: 0.1.8
-        usedversion: 0.1.8
-    - item:
-        name: vue-css-ts
-        requiredversion: 1.0.4-RC
-        usedversion: 1.0.4-RC
-      parent:
-        name: '@webdash-components/wd-list-box'
-        requiredversion: ^0.3.4
-        usedversion: 0.3.4
+        name: '@webdash-components/wd-vue-toast'
+        requiredversion: 0.1.23
+        usedversion: 0.1.23
     - item:
         name: vue-css-ts
         requiredversion: 1.0.4-RC
@@ -8678,9 +8654,33 @@ items:
         requiredversion: 1.0.4-RC
         usedversion: 1.0.4-RC
       parent:
-        name: '@webdash-components/wd-vue-toast'
-        requiredversion: 0.1.23
-        usedversion: 0.1.23
+        name: '@webdash-components/wd-list-box'
+        requiredversion: ^0.3.4
+        usedversion: 0.3.4
+    - item:
+        name: vue-css-ts
+        requiredversion: 1.0.4-RC
+        usedversion: 1.0.4-RC
+      parent:
+        name: '@webdash-components/wd-progress-bar'
+        requiredversion: 0.1.8
+        usedversion: 0.1.8
+    - item:
+        name: vue-css-ts
+        requiredversion: 1.0.4-RC
+        usedversion: 1.0.4-RC
+      parent:
+        name: '@webdash-components/wd-field-set'
+        requiredversion: ^0.1.0
+        usedversion: 0.1.11
+    - item:
+        name: vue-css-ts
+        requiredversion: 1.0.4-RC
+        usedversion: 1.0.4-RC
+      parent:
+        name: '@webdash-components/wd-confirm-dialog'
+        requiredversion: ^0.1.19
+        usedversion: 0.1.19
     - item:
         name: vue-ctk-date-time-picker
         requiredversion: 2.5.0
@@ -8706,30 +8706,17 @@ items:
         requiredversion: 8.15.0
         usedversion: 8.15.0
       parent:
-        name: '@webdash-components/wd-modal-dialog'
-        requiredversion: ^0.1.9
-        usedversion: 0.1.15
-    - item:
-        name: vue-i18n
-        requiredversion: 8.15.0
-        usedversion: 8.15.0
-      parent:
-        name: '@webdash-components/wd-widget-overlay'
-        requiredversion: ^0.3.7
-        usedversion: 0.3.10
-    - item:
-        name: vue-i18n
-        requiredversion: 8.26.3
-        usedversion: 8.26.3
-      parent: null
-    - item:
-        name: vue-i18n
-        requiredversion: 8.15.0
-        usedversion: 8.15.0
-      parent:
         name: '@webdash-components/wd-list-box'
         requiredversion: ^0.3.4
         usedversion: 0.3.4
+    - item:
+        name: vue-i18n
+        requiredversion: 8.15.0
+        usedversion: 8.15.0
+      parent:
+        name: '@webdash-components/wd-progress-bar'
+        requiredversion: 0.1.8
+        usedversion: 0.1.8
     - item:
         name: vue-i18n
         requiredversion: 8.15.0
@@ -8743,9 +8730,9 @@ items:
         requiredversion: 8.15.0
         usedversion: 8.15.0
       parent:
-        name: '@webdash-components/wd-vue-toast'
-        requiredversion: 0.1.23
-        usedversion: 0.1.23
+        name: '@webdash-components/wd-modal-dialog'
+        requiredversion: ^0.1.9
+        usedversion: 0.1.15
     - item:
         name: vue-i18n
         requiredversion: 8.15.0
@@ -8756,17 +8743,25 @@ items:
         usedversion: 0.1.19
     - item:
         name: vue-i18n
+        requiredversion: 8.26.3
+        usedversion: 8.26.3
+      parent: null
+    - item:
+        name: vue-i18n
         requiredversion: 8.15.0
         usedversion: 8.15.0
       parent:
-        name: '@webdash-components/wd-progress-bar'
-        requiredversion: 0.1.8
-        usedversion: 0.1.8
+        name: '@webdash-components/wd-vue-toast'
+        requiredversion: 0.1.23
+        usedversion: 0.1.23
     - item:
-        name: vue-js-modal
-        requiredversion: 1.3.33
-        usedversion: 1.3.33
-      parent: null
+        name: vue-i18n
+        requiredversion: 8.15.0
+        usedversion: 8.15.0
+      parent:
+        name: '@webdash-components/wd-widget-overlay'
+        requiredversion: ^0.3.7
+        usedversion: 0.3.10
     - item:
         name: vue-js-modal
         requiredversion: 1.3.31
@@ -8775,6 +8770,11 @@ items:
         name: '@webdash-components/wd-modal-dialog'
         requiredversion: ^0.1.9
         usedversion: 0.1.15
+    - item:
+        name: vue-js-modal
+        requiredversion: 1.3.33
+        usedversion: 1.3.33
+      parent: null
     - item:
         name: vue-js-modal
         requiredversion: 1.3.31
@@ -8804,25 +8804,9 @@ items:
         requiredversion: 8.3.0
         usedversion: 8.3.0
       parent:
-        name: '@webdash-components/wd-modal-dialog'
-        requiredversion: ^0.1.9
-        usedversion: 0.1.15
-    - item:
-        name: vue-property-decorator
-        requiredversion: 8.3.0
-        usedversion: 8.3.0
-      parent:
-        name: '@webdash-components/wd-list-box'
-        requiredversion: ^0.3.4
-        usedversion: 0.3.4
-    - item:
-        name: vue-property-decorator
-        requiredversion: 8.3.0
-        usedversion: 8.3.0
-      parent:
-        name: '@webdash-components/wd-confirm-dialog'
-        requiredversion: ^0.1.19
-        usedversion: 0.1.19
+        name: '@webdash-components/wd-widget-overlay'
+        requiredversion: ^0.3.7
+        usedversion: 0.3.10
     - item:
         name: vue-property-decorator
         requiredversion: 8.3.0
@@ -8838,14 +8822,6 @@ items:
       parent: null
     - item:
         name: vue-property-decorator
-        requiredversion: ^8.1.0
-        usedversion: 8.5.1
-      parent:
-        name: vue-easy-dnd
-        requiredversion: 1.6.1
-        usedversion: 1.6.1
-    - item:
-        name: vue-property-decorator
         requiredversion: 8.3.0
         usedversion: 8.3.0
       parent:
@@ -8857,17 +8833,41 @@ items:
         requiredversion: 8.3.0
         usedversion: 8.3.0
       parent:
-        name: '@webdash-components/wd-progress-bar'
-        requiredversion: 0.1.8
-        usedversion: 0.1.8
+        name: '@webdash-components/wd-confirm-dialog'
+        requiredversion: ^0.1.19
+        usedversion: 0.1.19
     - item:
         name: vue-property-decorator
         requiredversion: 8.3.0
         usedversion: 8.3.0
       parent:
-        name: '@webdash-components/wd-widget-overlay'
-        requiredversion: ^0.3.7
-        usedversion: 0.3.10
+        name: '@webdash-components/wd-list-box'
+        requiredversion: ^0.3.4
+        usedversion: 0.3.4
+    - item:
+        name: vue-property-decorator
+        requiredversion: 8.3.0
+        usedversion: 8.3.0
+      parent:
+        name: '@webdash-components/wd-modal-dialog'
+        requiredversion: ^0.1.9
+        usedversion: 0.1.15
+    - item:
+        name: vue-property-decorator
+        requiredversion: ^8.1.0
+        usedversion: 8.5.1
+      parent:
+        name: vue-easy-dnd
+        requiredversion: 1.6.1
+        usedversion: 1.6.1
+    - item:
+        name: vue-property-decorator
+        requiredversion: 8.3.0
+        usedversion: 8.3.0
+      parent:
+        name: '@webdash-components/wd-progress-bar'
+        requiredversion: 0.1.8
+        usedversion: 0.1.8
     - item:
         name: vue-resize
         requiredversion: ^1.0.1
@@ -8881,30 +8881,6 @@ items:
         requiredversion: 3.1.3
         usedversion: 3.1.3
       parent:
-        name: '@webdash-components/wd-modal-dialog'
-        requiredversion: ^0.1.9
-        usedversion: 0.1.15
-    - item:
-        name: vue-router
-        requiredversion: 3.1.3
-        usedversion: 3.1.3
-      parent:
-        name: '@webdash-components/wd-vue-toast'
-        requiredversion: 0.1.23
-        usedversion: 0.1.23
-    - item:
-        name: vue-router
-        requiredversion: 3.1.3
-        usedversion: 3.1.3
-      parent:
-        name: '@webdash-components/wd-confirm-dialog'
-        requiredversion: ^0.1.19
-        usedversion: 0.1.19
-    - item:
-        name: vue-router
-        requiredversion: 3.1.3
-        usedversion: 3.1.3
-      parent:
         name: '@webdash-components/wd-widget-overlay'
         requiredversion: ^0.3.7
         usedversion: 0.3.10
@@ -8913,9 +8889,17 @@ items:
         requiredversion: 3.1.3
         usedversion: 3.1.3
       parent:
-        name: '@webdash-components/wd-field-set'
-        requiredversion: ^0.1.0
-        usedversion: 0.1.11
+        name: '@webdash-components/wd-modal-dialog'
+        requiredversion: ^0.1.9
+        usedversion: 0.1.15
+    - item:
+        name: vue-router
+        requiredversion: 3.1.3
+        usedversion: 3.1.3
+      parent:
+        name: '@webdash-components/wd-progress-bar'
+        requiredversion: 0.1.8
+        usedversion: 0.1.8
     - item:
         name: vue-router
         requiredversion: 3.1.3
@@ -8929,9 +8913,25 @@ items:
         requiredversion: 3.1.3
         usedversion: 3.1.3
       parent:
-        name: '@webdash-components/wd-progress-bar'
-        requiredversion: 0.1.8
-        usedversion: 0.1.8
+        name: '@webdash-components/wd-field-set'
+        requiredversion: ^0.1.0
+        usedversion: 0.1.11
+    - item:
+        name: vue-router
+        requiredversion: 3.1.3
+        usedversion: 3.1.3
+      parent:
+        name: '@webdash-components/wd-confirm-dialog'
+        requiredversion: ^0.1.19
+        usedversion: 0.1.19
+    - item:
+        name: vue-router
+        requiredversion: 3.1.3
+        usedversion: 3.1.3
+      parent:
+        name: '@webdash-components/wd-vue-toast'
+        requiredversion: 0.1.23
+        usedversion: 0.1.23
     - item:
         name: vuelidate
         requiredversion: 0.7.4
@@ -9012,16 +9012,16 @@ items:
         usedversion: 1.0.3
       parent:
         name: plotly.js
-        requiredversion: ^2.5.1
-        usedversion: 2.11.1
+        requiredversion: ^1.35.0
+        usedversion: 1.58.5
     - item:
         name: world-calendars
         requiredversion: ^1.0.3
         usedversion: 1.0.3
       parent:
         name: plotly.js
-        requiredversion: ^1.35.0
-        usedversion: 1.58.5
+        requiredversion: ^2.5.1
+        usedversion: 2.11.1
     - item:
         name: wrap-ansi
         requiredversion: ^7.0.0

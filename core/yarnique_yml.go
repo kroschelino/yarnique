@@ -22,9 +22,11 @@ func ShowRootPackages(packageName string) error {
 	}
 
 	createMapFromDepTree()
-	deps, err := getApplicableDependencies(packageName, &depTree)
-	if err != nil {
-		return err
+	deps, found := getApplicableDependencies(packageName, &depTree)
+	if !found {
+		fmt.Printf("could not find any dependencies for `%s`", packageName)
+		fmt.Println()
+		return nil
 	}
 	printRootDependencies(deps, &depTreeMap)
 
@@ -109,10 +111,9 @@ func getDepTreeFromYaml() error {
 	return nil
 }
 
-func getApplicableDependencies(packageName string, depTree *DependencyTree) ([]*Dependency, error) {
+func getApplicableDependencies(packageName string, depTree *DependencyTree) ([]*Dependency, bool) {
 
 	var result []*Dependency
-	var err error
 	for i := range depTree.Items {
 
 		if strings.Contains(depTree.Items[i].Item.Name, packageName) {
@@ -124,11 +125,7 @@ func getApplicableDependencies(packageName string, depTree *DependencyTree) ([]*
 		}
 	}
 
-	if result == nil {
-		err = errors.New("could not find any dependencies containing `packageName`")
-	}
-
-	return result, err
+	return result, result != nil
 }
 
 func ensureMapExists(sourceMap *DepTreeMap, key string) {

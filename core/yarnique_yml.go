@@ -47,7 +47,11 @@ func buildDepdencyPaths(dep *Dependency, depTreeMap *DepTreeMap) DependencyPath 
 
 			if (*depTreeMap)[dep.Name][dep.UsedVersion] != nil {
 				for _, parentDep := range (*depTreeMap)[dep.Name][dep.UsedVersion] {
-					buildDependencyPathRecursive(parentDep, fullPath, &result, recursionDepth-1, depTreeMap)
+					if parentDep == nil {
+						*fullPath = append(*fullPath, result)
+					} else {
+						buildDependencyPathRecursive(parentDep, fullPath, &result, recursionDepth-1, depTreeMap)
+					}
 				}
 				return
 			}
@@ -66,7 +70,7 @@ func printRootDependencies(deps []*Dependency, depTreeMap *DepTreeMap) {
 
 		leafPackage := packageName(dep)
 
-		if (*depTreeMap)[dep.Name][dep.UsedVersion] == nil {
+		if (*depTreeMap)[dep.Name][dep.UsedVersion][0] == nil {
 			// This is already a root dependency
 			color.Style{color.FgGreen, color.OpBold}.Println(leafPackage)
 			color.Println()

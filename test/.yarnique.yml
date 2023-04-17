@@ -436,6 +436,14 @@ items:
         usedversion: 0.3.2
       parent: null
     - item:
+        name: '@statnett/vue-plotly'
+        requiredversion: ^0.3.2
+        usedversion: 0.3.2
+      parent:
+        name: core-js
+        requiredversion: ^3.6.5
+        usedversion: 3.21.1
+    - item:
         name: '@turf/area'
         requiredversion: ^6.4.0
         usedversion: 6.5.0

@@ -76,6 +76,7 @@ func BuildDependencyTree() error {
 }
 
 func writeToYaml(tree *DependencyTree) error {
+	fmt.Print("Saving output to `.yarnique.yml`...")
 	d, err := yaml.Marshal(&tree)
 	if err != nil {
 		return errors.New("Could not create dependency tree")
@@ -85,5 +86,6 @@ func writeToYaml(tree *DependencyTree) error {
 	if err != nil {
 		return errors.New("Could not create dependency tree")
 	}
+	fmt.Println("done")
 	return nil
 }

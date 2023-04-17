@@ -24,7 +24,6 @@ package cmd
 import (
 	"os"
 
-	"github.com/kroschelino/yarnique/core"
 	"github.com/spf13/cobra"
 )
 
@@ -39,13 +38,13 @@ by taking a yarn list JSON output file and converting it to an SVG image`,
 	Args:       cobra.ExactArgs(1),
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
-	RunE: func(cmd *cobra.Command, args []string) error {
-		core.BuildDependencyTree()
-		// if err != nil {
-		// 	return err
-		// }
-		return nil
-	},
+	// RunE: func(cmd *cobra.Command, args []string) error {
+	// 	core.BuildDependencyTree()
+	// 	// if err != nil {
+	// 	// 	return err
+	// 	// }
+	// 	return nil
+	// },
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.

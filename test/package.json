@@ -8,7 +8,8 @@
     ],
     "main": "./dist/test.umd.js",
     "types": "./types/index.d.ts",
-    "dependencies": {
+    "dependencies": {      
+      "blubb": ">=0.5.0-feature.0 && <0.5.0-feature.999",
       "@iconfu/svg-inject": "^1.2.3",
       "@sick-davinci/basic-elements": "5.2.1",
       "@sick-davinci/ce-decorators": "3.2.4",

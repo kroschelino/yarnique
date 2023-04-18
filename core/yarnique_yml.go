@@ -57,6 +57,8 @@ func buildDepdencyPaths(dep *Dependency, depTreeMap *DepTreeMap) DependencyPath 
 				}
 				return
 			}
+		} else {
+			result = append(result, "?")
 		}
 		*fullPath = append(*fullPath, result)
 	}
@@ -93,7 +95,12 @@ func printRootDependencies(deps []*Dependency, depTreeMap *DepTreeMap) {
 			} else if len(path) > 2 {
 				color.Printf("%s > ", strings.Join(path[1:len(path)-1], " > "))
 			}
-			color.Style{color.FgGreen, color.OpBold}.Println(rootParent)
+
+			if rootParent == "?" {
+				color.Style{color.FgDarkGray}.Println(rootParent)
+			} else {
+				color.Style{color.FgGreen, color.OpBold}.Println(rootParent)
+			}
 
 		}
 		color.Println()

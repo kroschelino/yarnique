@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"regexp"
 	"strings"
+
+	"github.com/gookit/color"
 )
 
 var versionMap map[string]map[string]string
@@ -43,7 +45,7 @@ func createVersionsMap(yarnLock string) {
 			}
 		}
 	}
-	fmt.Println("done")
+	color.Style{color.OpBold, color.Green}.Println("done")
 }
 
 func findDirectDependencies(data *string) []Dependency {

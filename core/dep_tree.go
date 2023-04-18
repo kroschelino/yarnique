@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"sort"
 
+	"github.com/gookit/color"
 	"golang.org/x/exp/slices"
 	"gopkg.in/yaml.v3"
 )
@@ -56,7 +57,7 @@ func buildDependencyTree(rootDeps []Dependency, yarnLock string) {
 
 	buildDependencyTreeRecursive(rootDeps, nil, &yarnLock)
 
-	fmt.Println("done")
+	color.Style{color.OpBold, color.Green}.Println("done")
 }
 
 func sortDependencyTree(depTree *DependencyTree) {
@@ -94,6 +95,6 @@ func writeToYaml(tree *DependencyTree) error {
 	if err != nil {
 		return errors.New("could not create dependency tree")
 	}
-	fmt.Println("done")
+	color.Style{color.OpBold, color.Green}.Println("done")
 	return nil
 }

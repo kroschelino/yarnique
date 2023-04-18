@@ -13,8 +13,8 @@ func unifyString(input string) string {
 	return strings.Trim(strings.TrimSpace(input), `"`)
 }
 
-func escapePackageVersion(version string) string {
-	re := regexp.MustCompile("[.~<>^]")
+func escape(version string) string {
+	re := regexp.MustCompile("[.~<>^/]")
 	return re.ReplaceAllString(version, "\\$0")
 }
 
@@ -48,13 +48,17 @@ func createVersionsMap(yarnLock string) {
 
 func findDirectDependencies(data *string) []Dependency {
 	var result []Dependency
-	depRegex := regexp.MustCompile(`(?m)  dependencies:\r?\n+?((?:    \S+ \S+\r?\n)+)`)
+	depRegex := regexp.MustCompile(`(?m)  dependencies:\r?\n+?((?:    \S+ .+?\r?\n)+)`)
 	if deps := depRegex.FindStringSubmatch(*data); len(deps) > 1 {
 		scanner := bufio.NewScanner(strings.NewReader(deps[1]))
 		for scanner.Scan() {
 			line := unifyString(scanner.Text())
-			dep := strings.Split(line, " ")
-			result = append(result, Dependency{Name: unifyString(dep[0]), RequiredVersion: unifyString(dep[1])})
+			if splitIndex := strings.Index(line, " "); splitIndex != -1 {
+				name := line[:splitIndex]
+				version := line[splitIndex:]
+				result = append(result, Dependency{Name: unifyString(name), RequiredVersion: unifyString(version)})
+			}
+
 		}
 	}
 	return result
@@ -62,20 +66,23 @@ func findDirectDependencies(data *string) []Dependency {
 
 func findOptionalDependencies(data *string) []Dependency {
 	var result []Dependency
-	depRegex := regexp.MustCompile(`(?m)  optionalDependencies:\r?\n+?((?:    \S+ \S+\r?\n)+)`)
+	depRegex := regexp.MustCompile(`(?m)  optionalDependencies:\r?\n+?((?:    \S+ .+?\r?\n)+)`)
 	if deps := depRegex.FindStringSubmatch(*data); len(deps) > 1 {
 		scanner := bufio.NewScanner(strings.NewReader(deps[1]))
 		for scanner.Scan() {
 			line := unifyString(scanner.Text())
-			dep := strings.Split(line, " ")
-			result = append(result, Dependency{Name: unifyString(dep[0]), RequiredVersion: unifyString(dep[1])})
+			if splitIndex := strings.Index(line, " "); splitIndex != -1 {
+				name := line[:splitIndex]
+				version := line[splitIndex:]
+				result = append(result, Dependency{Name: unifyString(name), RequiredVersion: unifyString(version)})
+			}
 		}
 	}
 	return result
 }
 
 func findDependencies(parent *Dependency, yarnLock *string) []Dependency {
-	libName := fmt.Sprintf("%s@%s", unifyString(parent.Name), escapePackageVersion(parent.RequiredVersion))
+	libName := fmt.Sprintf("%s@%s", escape(unifyString(parent.Name)), escape(parent.RequiredVersion))
 	sectionRegex := regexp.MustCompile(fmt.Sprintf(`(?ms)"?%s"?(.*?\r?\n)\r?\n`, libName))
 	if section := sectionRegex.FindStringSubmatch(*yarnLock); len(section) > 1 {
 		result := findDirectDependencies(&section[1])
